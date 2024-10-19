@@ -5,13 +5,15 @@ import Link from "next/link";
 import { ROUTES } from "@/constants/route";
 import Image from "next/image";
 import { ChevronDown, Menu, X } from "lucide-react";
+import InfoBar from "./InfoBar";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
-    <header className="bg-background text-foreground p-4">
+    <header className="bg-background text-foreground ">
+      <InfoBar />
       <div className="container mx-auto flex justify-between items-center">
         <Image
           src="/logo.png"
@@ -29,7 +31,7 @@ const Header = () => {
         </button>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex space-x-8 uppercase text-title-small font-semibold">
+        <nav className="hidden lg:flex space-x-8 uppercase text-title-small font-semibold ">
           {ROUTES.map((route, index) =>
             route.dropdown ? (
               <div
@@ -38,8 +40,8 @@ const Header = () => {
                 onMouseEnter={() => setDropdownOpen(true)}
                 onMouseLeave={() => setDropdownOpen(false)}>
                 <button className="hover:text-secondary hover:font-bold uppercase text-title-small font-semibold  py-4 flex items-center justify-between">
-                  {route.name}{" "}
-                  <span className="ml-2 ">
+                  {route.name}
+                  <span className="ml-2">
                     <ChevronDown size={20} />
                   </span>
                 </button>
@@ -49,7 +51,7 @@ const Header = () => {
                       <Link
                         key={subIndex}
                         href={item.path}
-                        className="block px-4 py-4 hover:text-secondary-foreground hover:bg-secondary">
+                        className="block px-4 py-4 hover:text-secondary-foreground hover:bg-secondary ">
                         {item.name}
                       </Link>
                     ))}
