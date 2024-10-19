@@ -3,29 +3,53 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { ROUTES } from "@/constants/route";
+import Image from "next/image";
+import { ChevronDown, Menu, X } from "lucide-react";
 
 const Header = () => {
-  const [showDropdown, setShowDropdown] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
-    <header className="bg-gray-800 text-white p-4">
-      <nav className="container mx-auto flex justify-between items-center">
-        <div className="flex space-x-8">
+    <header className="bg-background text-foreground p-4">
+      <div className="container mx-auto flex justify-between items-center">
+        <Image
+          src="/logo.png"
+          width={200}
+          height={100}
+          alt="Solar Cooking Kenya"
+          priority
+        />
+
+        {/* Mobile menu button */}
+        <button
+          className="lg:hidden"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex space-x-8 uppercase text-title-small font-semibold">
           {ROUTES.map((route, index) =>
             route.dropdown ? (
               <div
                 key={index}
                 className="relative"
-                onMouseEnter={() => setShowDropdown(true)}
-                onMouseLeave={() => setShowDropdown(false)}>
-                <button className="hover:text-gray-300">{route.name}</button>
-                {showDropdown && (
-                  <div className="absolute left-0 bg-gray-700 rounded shadow-lg">
+                onMouseEnter={() => setDropdownOpen(true)}
+                onMouseLeave={() => setDropdownOpen(false)}>
+                <button className="hover:text-secondary hover:font-bold uppercase text-title-small font-semibold  py-4 flex items-center justify-between">
+                  {route.name}{" "}
+                  <span className="ml-2 ">
+                    <ChevronDown size={20} />
+                  </span>
+                </button>
+                {dropdownOpen && (
+                  <div className="absolute left-0 bg-background shadow-lg w-[200px]">
                     {route.dropdown.map((item, subIndex) => (
                       <Link
                         key={subIndex}
                         href={item.path}
-                        className="block px-4 py-2 hover:bg-gray-600">
+                        className="block px-4 py-4 hover:text-secondary-foreground hover:bg-secondary">
                         {item.name}
                       </Link>
                     ))}
@@ -36,13 +60,51 @@ const Header = () => {
               <Link
                 key={index}
                 href={route.path}
-                className="hover:text-gray-300">
+                className="hover:text-secondary hover:font-bold  py-4">
                 {route.name}
               </Link>
             )
           )}
-        </div>
-      </nav>
+        </nav>
+
+        {/* Mobile Navigation */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden absolute top-16 left-0 right-0 bg-gray-800 p-4">
+            {ROUTES.map((route, index) =>
+              route.dropdown ? (
+                <div key={index}>
+                  <button
+                    onClick={() => setDropdownOpen(!dropdownOpen)}
+                    className="w-full text-left py-2">
+                    {route.name}
+                  </button>
+                  {dropdownOpen && (
+                    <div className="pl-4">
+                      {route.dropdown.map((item, subIndex) => (
+                        <Link
+                          key={subIndex}
+                          href={item.path}
+                          className="block py-2 hover:text-gray-300"
+                          onClick={() => setMobileMenuOpen(false)}>
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link
+                  key={index}
+                  href={route.path}
+                  className="block py-2 hover:text-gray-300"
+                  onClick={() => setMobileMenuOpen(false)}>
+                  {route.name}
+                </Link>
+              )
+            )}
+          </div>
+        )}
+      </div>
     </header>
   );
 };

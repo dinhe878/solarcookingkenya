@@ -23,7 +23,7 @@ body {
     --primary: 142 72% 29%; /* Green */
     --primary-foreground: 0 0% 100%; /* White */
     --secondary: 142.1 70.6% 45.3%; /* Light Green */
-    --secondary-foreground: 142 72% 29%;
+    --secondary-foreground: 0 0% 100%;
     --muted: 142.1 70.6% 45.3%;
     --muted-foreground: 142 14% 44.7%;
     --accent: 142.1 70.6% 45.3%;
