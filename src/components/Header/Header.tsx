@@ -6,6 +6,7 @@ import { ROUTES } from "@/constants/route";
 import Image from "next/image";
 import { ChevronDown, Menu, X } from "lucide-react";
 import InfoBar from "./InfoBar";
+import BuyButton from "./BuyButton";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -14,7 +15,7 @@ const Header = () => {
   return (
     <header className="bg-background text-foreground ">
       <InfoBar />
-      <div className="container mx-auto flex justify-between items-center">
+      <div className="flex justify-between items-center ">
         <Image
           src="/logo.png"
           width={200}
@@ -30,44 +31,47 @@ const Header = () => {
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex space-x-8 uppercase text-title-small font-semibold ">
-          {ROUTES.map((route, index) =>
-            route.dropdown ? (
-              <div
-                key={index}
-                className="relative"
-                onMouseEnter={() => setDropdownOpen(true)}
-                onMouseLeave={() => setDropdownOpen(false)}>
-                <button className="hover:text-secondary hover:font-bold uppercase text-title-small font-semibold  py-4 flex items-center justify-between">
+        <div className="flex justify-between items-center">
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex space-x-8 uppercase text-title-small font-semibold mx-5 items-center">
+            {ROUTES.map((route, index) =>
+              route.dropdown ? (
+                <div
+                  key={index}
+                  className="relative"
+                  onMouseEnter={() => setDropdownOpen(true)}
+                  onMouseLeave={() => setDropdownOpen(false)}>
+                  <button className="hover:text-secondary hover:font-bold uppercase text-title-small font-semibold py-5 flex items-center justify-between">
+                    {route.name}
+                    <span className="ml-2">
+                      <ChevronDown size={20} />
+                    </span>
+                  </button>
+                  {dropdownOpen && (
+                    <div className="absolute left-0 bg-background shadow-lg w-[200px]">
+                      {route.dropdown.map((item, subIndex) => (
+                        <Link
+                          key={subIndex}
+                          href={item.path}
+                          className="block px-4 py-4 hover:text-secondary-foreground hover:bg-secondary ">
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link
+                  key={index}
+                  href={route.path}
+                  className="hover:text-secondary hover:font-bold  py-5">
                   {route.name}
-                  <span className="ml-2">
-                    <ChevronDown size={20} />
-                  </span>
-                </button>
-                {dropdownOpen && (
-                  <div className="absolute left-0 bg-background shadow-lg w-[200px]">
-                    {route.dropdown.map((item, subIndex) => (
-                      <Link
-                        key={subIndex}
-                        href={item.path}
-                        className="block px-4 py-4 hover:text-secondary-foreground hover:bg-secondary ">
-                        {item.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ) : (
-              <Link
-                key={index}
-                href={route.path}
-                className="hover:text-secondary hover:font-bold  py-4">
-                {route.name}
-              </Link>
-            )
-          )}
-        </nav>
+                </Link>
+              )
+            )}
+          </nav>
+          <BuyButton />
+        </div>
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
