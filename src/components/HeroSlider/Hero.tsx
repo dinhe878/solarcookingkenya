@@ -36,8 +36,8 @@ export default function Hero() {
   };
 
   useEffect(() => {
-    // const timer = setInterval(nextSlide, 5000);
-    // return () => clearInterval(timer);
+    const timer = setInterval(nextSlide, 5000);
+    return () => clearInterval(timer);
   }, []);
 
   return (
@@ -51,13 +51,13 @@ export default function Hero() {
         />
       ))}
 
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 items-center">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full ${
-              currentSlide === index ? "bg-white" : "bg-white/50"
+            className={`w-8  rounded-full ${
+              currentSlide === index ? "bg-secondary h-2" : "bg-background h-1"
             }`}
           />
         ))}
@@ -65,14 +65,14 @@ export default function Hero() {
 
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full text-white hover:bg-black/75">
-        <ChevronLeft size={24} />
+        className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full text-background hover:bg-foreground">
+        <ChevronLeft size={30} />
       </button>
 
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full text-white hover:bg-black/75">
-        <ChevronRight size={24} />
+        className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full text-background hover:bg-foreground">
+        <ChevronRight size={30} />
       </button>
     </div>
   );

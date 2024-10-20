@@ -13,7 +13,7 @@ const Header = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
-    <header className="bg-background text-foreground ">
+    <header className="bg-background text-foreground z-50">
       <InfoBar />
       <div className="flex justify-between items-center ">
         <Image
@@ -48,7 +48,7 @@ const Header = () => {
                     </span>
                   </button>
                   {dropdownOpen && (
-                    <div className="absolute left-0 bg-background shadow-lg w-[200px]">
+                    <div className="absolute left-0 bg-background shadow-lg w-[200px] z-50">
                       {route.dropdown.map((item, subIndex) => (
                         <Link
                           key={subIndex}
