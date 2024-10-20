@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function CalltoAction() {
   return (
-    <div className="container mx-auto flex h-screen items-center justify-center">
+    <div className="container mx-auto flex h-screen items-center justify-evenly">
       <div className="w-2/5 relative h-full items-center flex flex-col space-y-4 justify-center">
         <div className="absolute top-40 left-0 z-10 p-8 bg-secondary text-secondary-foreground rounded-lg text-left">
           <Users className="text-secondary-foreground w-20 h-10 mb-2" />
@@ -28,7 +28,7 @@ export default function CalltoAction() {
         {/* <div className="items-center bg-secondary opacity-55 text-foreground font-bold text-title-small p-2 rounded-md w-fit">
           <p>Why Choose Solar Cookers !</p>
         </div> */}
-        <h1 className="sm:text-headline-large font-extrabold text-accent ">
+        <h1 className="sm:text-display-medium font-extrabold text-accent ">
           25+ Years Experience In Solar & Renewable Energy Solutions
         </h1>
         <div className="flex space-x-4">
