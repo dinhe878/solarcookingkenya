@@ -20,7 +20,7 @@ const slides = [
     image: "/solarcooking3.jpg",
     title: "Pioneers Of Solar And Renewable Energy",
     content:
-      "You can often buy the cooker on instalment, but you need to pay a certain amount in cash.After paying for your solar cooker the sun will provide you with free fuel. Take good care of your cooker and it will last for many years.Combine with a fireless cooker to keep your meal hot until you want to eat.",
+      "Buy the cooker in installments after an initial cash deposit. After paying for your solar cooker the sun will provide you with free fuel. Take good care of your cooker and it will last for many years. Combine with a fireless cooker to keep your meal h.",
   },
 ];
 

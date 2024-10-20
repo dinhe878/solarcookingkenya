@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120">
+  <!-- Fuel Saving Stove -->
+  <g transform="translate(280,0)">
+    <path d="M30 20 L90 20 L100 90 L20 90 Z" fill="#78909C" stroke="#455A64" stroke-width="4"/>
+    <rect x="45" y="30" width="30" height="10" fill="#E65100" stroke="#BF360C" stroke-width="4"/>
+    <path d="M40 50 C40 80, 80 80, 80 50" fill="#FF5722" stroke="#E64A19" stroke-width="4"/>
+    <path d="M50 40 L50 70 M70 40 L70 70" stroke="#BF360C" stroke-width="4" stroke-dasharray="4"/>
+  </g>
+</svg>

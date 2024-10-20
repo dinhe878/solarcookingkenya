@@ -45,8 +45,8 @@ export default function FactsSection() {
   ];
 
   return (
-    <div className="py-10 px-5 bg-accent text-accent-foreground min-h-screen">
-      <div className="container mx-auto items-center justify-between">
+    <div className="py-10 bg-accent text-accent-foreground min-h-screen">
+      <div className="container mx-auto items-center justify-between px-10">
         <div className="flex flex-col">
           <p className="text-title-small font-semibold text-secondary">
             Why Choose Solar Cookers
@@ -91,7 +91,7 @@ export default function FactsSection() {
             return (
               <div
                 key={index}
-                className="bg-background text-foreground w-1/4 h-[400px] p-10 flex flex-col rounded-lg">
+                className="bg-card text-foreground w-1/4 h-[400px] p-10 flex flex-col rounded-lg">
                 <div className="flex-1 flex flex-col items-center justify-between space-y-4 text-center">
                   <div className="bg-green-100 p-4 rounded-full flex items-center justify-center">
                     <Icon className="" size={30} />
@@ -101,19 +101,20 @@ export default function FactsSection() {
                     <p className="font-semibold">{fact.title}</p>
                     <p className="mt-2">{fact.summary}</p>
                   </div>
-                  <div
-                    onMouseEnter={() => setHoveredIndex(index)}
-                    onMouseLeave={() => setHoveredIndex(null)}
-                    className="mt-4 flex w-full justify-center">
+                  <div className="mt-4 flex w-full justify-center">
                     {hoveredIndex === index ? (
-                      <button className="flex items-center text-title-small w-2/3 justify-center p-4 hover:text-accent-foreground hover:bg-accent transition-colors rounded-full">
+                      <button
+                        onMouseLeave={() => setHoveredIndex(null)}
+                        className="flex items-center text-title-small w-2/3 justify-center p-4 hover:text-accent-foreground hover:bg-accent transition-colors rounded-full">
                         <span className="mr-4">
                           <ArrowRightIcon />
                         </span>
                         Explore
                       </button>
                     ) : (
-                      <button className="bg-secondary text-secondary-foreground p-4 flex items-center text-title-small font-semibold rounded-full">
+                      <button
+                        onMouseEnter={() => setHoveredIndex(index)}
+                        className="bg-secondary text-secondary-foreground p-4 flex items-center text-title-small font-semibold rounded-full">
                         <ArrowRightIcon />
                       </button>
                     )}

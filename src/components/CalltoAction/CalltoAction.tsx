@@ -4,15 +4,15 @@ import Image from "next/image";
 
 export default function CalltoAction() {
   return (
-    <div className="container mx-auto flex h-screen items-center justify-evenly">
+    <div className="container mx-auto flex h-screen items-center justify-evenly py-10">
       <div className="w-2/5 relative h-full items-center flex flex-col space-y-4 justify-center">
         <div className="absolute top-40 left-0 z-10 p-8 bg-secondary text-secondary-foreground rounded-lg text-left">
           <Users className="text-secondary-foreground w-20 h-10 mb-2" />
-          <p className="text-display-medium font-bold">3520</p>
+          <p className="text-display-medium font-bold">3500+</p>
           <p className="text-label-large">Happy Clients</p>
         </div>
 
-        <div className="relative h-3/4 w-4/5">
+        <div className="relative h-full 2xl:h-3/4 w-4/5">
           <Image
             src="/solarcooking2.jpg"
             alt="solar cooking"
@@ -28,7 +28,7 @@ export default function CalltoAction() {
         {/* <div className="items-center bg-secondary opacity-55 text-foreground font-bold text-title-small p-2 rounded-md w-fit">
           <p>Why Choose Solar Cookers !</p>
         </div> */}
-        <h1 className="sm:text-display-medium font-extrabold text-accent ">
+        <h1 className="text-display-small 2xl:text-display-medium font-extrabold text-accent ">
           25+ Years Experience In Solar & Renewable Energy Solutions
         </h1>
         <div className="flex space-x-4">
