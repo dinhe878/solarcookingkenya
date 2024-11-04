@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <g>
+    <path d="M100 300h200v100H100z" fill="#D0D0D0"/>
+    <path d="M150 350h100v50H150z" fill="#B0B0B0"/>
+    <path d="M175 375h50v25H175z" fill="#A0A0A0"/>
+    <path d="M100 200h200v100H100z" fill="#F0F0F0"/>
+    <path d="M150 250h100v50H150z" fill="#E0E0E0"/>
+    <path d="M175 275h50v25H175z" fill="#D0D0D0"/>
+    <path d="M100 100h200v100H100z" fill="#C0C0C0"/>
+    <path d="M150 150h100v50H150z" fill="#B0B0B0"/>
+    <path d="M175 175h50v25H175z" fill="#A0A0A0"/>
+    <path d="M125 125h150v75H125z" fill="#808080"/>
+    <path d="M150 150h100v50H150z" fill="#707070"/>
+    <path d="M175 175h50v25H175z" fill="#606060"/>
+    <path d="M150 125h100v25H150z" fill="#505050"/>
+    <path d="M175 150h50v25H175z" fill="#404040"/>
+    <path d="M150 100h100v25H150z" fill="#303030"/>
+    <path d="M175 125h50v25H175z" fill="#202020"/>
+    <rect x="160" y="200" width="80" height="50" fill="#FF8C00"/>
+    <rect x="165" y="205" width="70" height="40" fill="#FFA500"/>
+    <rect x="170" y="210" width="60" height="30" fill="#FFD700"/>
+  </g>
+</svg>

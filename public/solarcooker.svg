@@ -1,11 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120">
-  <!-- Solar Cooker -->
-  <g transform="translate(0,0)">
-    <circle cx="60" cy="60" r="40" fill="#FFE082" stroke="#FF9800" stroke-width="4"/>
-    <circle cx="60" cy="60" r="25" fill="#FFA726" stroke="#F57C00" stroke-width="4"/>
-    <path d="M60 10 L60 110 M10 60 L110 60" stroke="#F57C00" stroke-width="4"/>
-    <path d="M25 25 L95 95 M25 95 L95 25" stroke="#F57C00" stroke-width="4"/>
-  </g>
-
-  
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <circle cx="60" cy="60" r="40" fill="hsl(142.1, 70.6%, 85%)" stroke="hsl(142.1, 70.6%, 45.3%)" stroke-width="4"/>
+  <circle cx="60" cy="60" r="25" fill="hsl(142.1, 70.6%, 75%)" stroke="hsl(142.1, 70.6%, 45.3%)" stroke-width="4"/>
+  <path d="M60 10 L60 110 M10 60 L110 60" stroke="hsl(142.1, 70.6%, 45.3%)" stroke-width="4"/>
+  <path d="M25 25 L95 95 M25 95 L95 25" stroke="hsl(142.1, 70.6%, 45.3%)" stroke-width="4"/>
 </svg>

@@ -5,9 +5,9 @@ export const ROUTES = [
     name: "Solar Cooking",
     path: "#",
     dropdown: [
-      { name: "Solar Cooker", path: "/solar-cooking/solar-cooker" },
-      { name: "Fireless Cooker", path: "/solar-cooking/fireless-cooker" },
-      { name: "Fuel Saving Stove", path: "/solar-cooking/fuel-saving-stove" },
+      { name: "Solar Cooker", path: "/solarcookers/solarcooker" },
+      { name: "Fireless Cooker", path: "/solarcookers/firelesscooker" },
+      { name: "Fuel Saving Stove", path: "/solarcookers/fuelsavingstove" },
     ],
   },
   { name: "Contact Us", path: "/contact" },

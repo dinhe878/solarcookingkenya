@@ -96,7 +96,7 @@ export default function FactsSection() {
                   <div className="bg-green-100 p-4 rounded-full flex items-center justify-center">
                     <Icon className="" size={30} />
                   </div>
-                  <h1 className="text-display-medium font-bold">{fact.fact}</h1>
+                  <h1 className="text-display-small font-bold">{fact.fact}</h1>
                   <div>
                     <p className="font-semibold">{fact.title}</p>
                     <p className="mt-2">{fact.summary}</p>
