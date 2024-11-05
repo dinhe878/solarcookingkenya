@@ -122,7 +122,7 @@ const ContactUsPage = () => {
             </h1>
             <p className="text-body-medium text-background max-w-2xl">
               Get in touch with our team for any inquiries, feedback, or
-              collaboration opportunities. We're here to assist you.
+              collaboration opportunities. We&apos;re here to assist you.
             </p>
           </div>
         </div>

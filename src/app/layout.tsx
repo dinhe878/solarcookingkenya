@@ -1,17 +1,27 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono, Roboto } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 
-const roboto = Roboto({
+// const roboto = Roboto({
+//   subsets: ["latin"],
+//   weight: ["100", "300", "400", "500", "700", "900"],
+// });
+
+// const jetBrainsMono = JetBrains_Mono({
+//   subsets: ["latin"],
+//   variable: "--font-jetbrainsMono", display: 'swap'
+// });
+
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["100", "300", "400", "500", "700", "900"],
+  variable: "--font-inter",
 });
 
-const jetBrainsMono = JetBrains_Mono({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-jetbrainsMono",
+  variable: "--font-space-grotesk",
 });
 
 export const metadata: Metadata = {
@@ -30,7 +40,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body
-        className={`${roboto.className} ${jetBrainsMono.variable} antialiased`}>
+        className={`${inter.className} ${spaceGrotesk.variable} antialiased`}>
         <Header />
         {children}
         <Footer />

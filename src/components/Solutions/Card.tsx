@@ -11,7 +11,7 @@ export default function Card({
   index: number;
 }) {
   return (
-    <div className="flex-1 flex flex-col items-center justify-between px-10 py-16 bg-card rounded-lg rounded-b-none relative mt-24 border-b-4 hover:border-b-8 border-secondary hover:border-accent">
+    <div key={index} className="flex-1 flex flex-col items-center justify-between px-10 py-16 bg-card rounded-lg rounded-b-none relative mt-24 border-b-4 hover:border-b-8 border-secondary hover:border-accent">
       <div className="absolute -top-24 left-0 z-10 p-4 rounded-lg">
         <Image
           src={product.image}

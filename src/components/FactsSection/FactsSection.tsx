@@ -1,5 +1,4 @@
 "use client";
-import { button } from "framer-motion/client";
 import { ArrowRightIcon } from "lucide-react";
 import React, { useState } from "react";
 import { FaShoppingBasket } from "react-icons/fa";

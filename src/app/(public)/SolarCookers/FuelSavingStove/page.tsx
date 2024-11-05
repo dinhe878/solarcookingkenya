@@ -1,5 +1,4 @@
 import React from "react";
-import { Play } from "lucide-react";
 import Image from "next/image";
 
 const RocketStovePage = () => {
@@ -119,8 +118,9 @@ const RocketStovePage = () => {
               <h3 className="font-bold text-xl mb-4">How it Works:</h3>
               <ol className="list-decimal pl-6 space-y-2">
                 <li>
-                  The stove features a vertical chimney or "rocket" that creates
-                  a strong airflow, drawing air into the fuel chamber.
+                  The stove features a vertical chimney or &quot;rocket&quot;
+                  that creates a strong airflow, drawing air into the fuel
+                  chamber.
                 </li>
                 <li>
                   Small, dry pieces of wood or charcoal are placed in the fuel

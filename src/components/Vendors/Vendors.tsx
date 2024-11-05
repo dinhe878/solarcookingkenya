@@ -1,15 +1,30 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import { geoMercator, geoPath } from "d3-geo";
-import { zoom as d3Zoom } from "d3-zoom";
+import { zoom as d3Zoom, ZoomBehavior } from "d3-zoom";
 import * as d3 from "d3";
+
+interface Location {
+  name: string;
+  description?: string;
+  lat: number;
+  lng: number;
+}
+
+interface KenyaMapProps {
+  geoJsonData: {
+    type: string;
+    features: any[];
+  };
+  locations: Record<string, Location>;
+}
 
 const LocationInfoCard = ({
   location,
   x,
   y,
 }: {
-  location: any;
+  location: Location;
   x: number;
   y: number;
 }) => (
@@ -28,14 +43,8 @@ const LocationInfoCard = ({
   </foreignObject>
 );
 
-const KenyaMap = ({
-  geoJsonData,
-  locations,
-}: {
-  geoJsonData: any;
-  locations: any;
-}) => {
-  const mapRef = useRef();
+const KenyaMap: React.FC<KenyaMapProps> = ({ geoJsonData, locations }) => {
+  const mapRef = useRef<SVGSVGElement | null>(null);
   const locationArray = Object.values(locations);
   const width = 800;
   const height = 600;
@@ -47,28 +56,23 @@ const KenyaMap = ({
   const pathGenerator = geoPath().projection(projection);
 
   useEffect(() => {
-    const svg = d3.select(mapRef.current);
-    const zoomBehavior = d3Zoom()
-      .scaleExtent([1, 8])
-      .on("zoom", (event) => {
-        svg.select("g").attr("transform", event.transform);
-      });
+    if (mapRef.current) {
+      const svg = d3.select<SVGSVGElement, unknown>(mapRef.current);
+      const zoomBehavior: ZoomBehavior<SVGSVGElement, unknown> = d3Zoom<
+        SVGSVGElement,
+        unknown
+      >()
+        .scaleExtent([1, 8])
+        .on("zoom", (event) => {
+          svg.select("g").attr("transform", event.transform);
+        });
 
-    svg.call(zoomBehavior);
+      svg.call(zoomBehavior as any);
+    }
   }, []);
 
   return (
     <div className="py-20 min-h-screen items-center justify-center flex-col flex space-y-6 relative">
-      {/* Background image with overlay
-      <div
-        className="absolute inset-0 bg-cover bg-center z-0"
-        style={{
-          backgroundImage: 'url("/energy.jpg")',
-        }}>
-        {/* 90% opacity overlay */}
-      {/* <div className="absolute inset-0 bg-slate-900 opacity-90"></div>
-      </div> */}
-
       <div className="flex container mx-auto relative z-10">
         <div className="w-full h-full">
           <svg
@@ -87,10 +91,10 @@ const KenyaMap = ({
               />
 
               {geoJsonData &&
-                geoJsonData.features.map((feature: any, i: number) => (
+                geoJsonData.features.map((feature, i) => (
                   <path
                     key={i}
-                    d={pathGenerator(feature)}
+                    d={pathGenerator(feature) || ""}
                     fill="hsl(20 14.3% 4.1%)"
                     stroke="#2a3f4c"
                     strokeWidth="1"
@@ -98,18 +102,18 @@ const KenyaMap = ({
                 ))}
 
               {locationArray.map((location, i) => {
-                const [x, y] = projection([location.lng, location.lat]);
+                const [x, y] = projection([location.lng, location.lat]) || [
+                  0, 0,
+                ];
 
                 return (
                   <g key={i} className="group">
-                    {/* Outer pulsing circle */}
                     <circle
                       cx={x}
                       cy={y}
                       r="12"
                       className="fill-green-400 opacity-20 animate-pulse group-hover:fill-amber-400"
                     />
-                    {/* Ring effect */}
                     <circle
                       cx={x}
                       cy={y}
@@ -117,14 +121,12 @@ const KenyaMap = ({
                       className="fill-transparent stroke-amber-300 opacity-0 group-hover:opacity-75 transition-all duration-300"
                       strokeWidth="2"
                     />
-                    {/* Main marker circle with hover effect */}
                     <circle
                       cx={x}
                       cy={y}
                       r="5"
                       className="fill-green-400 transition-all duration-300 group-hover:fill-amber-400 group-hover:r-6"
                     />
-                    {/* Info card with pointer-events-none to prevent interference with zoom */}
                     <g className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <LocationInfoCard location={location} x={x} y={y} />
                     </g>

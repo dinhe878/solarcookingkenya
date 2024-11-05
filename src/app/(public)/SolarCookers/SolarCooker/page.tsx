@@ -1,5 +1,4 @@
 import React from "react";
-import { Play } from "lucide-react";
 import Image from "next/image";
 
 const SolarCookerPage = () => {
@@ -49,7 +48,7 @@ const SolarCookerPage = () => {
             <p className="text-body-medium text-background max-w-2xl">
               We are helping to lead the charge in sustainable cooking solutions
               that can help you build on your past successes and prepare for the
-              future. Our solutions are recognized as one of the world's leading
+              future. Our solutions are recognized as one of the world&apos;s leading
               eco-friendly alternatives.
             </p>
           </div>
