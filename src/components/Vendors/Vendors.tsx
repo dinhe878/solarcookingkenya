@@ -73,7 +73,7 @@ const KenyaMap: React.FC<KenyaMapProps> = ({ geoJsonData, locations }) => {
   }, []);
 
   return (
-    <div className="py-20 min-h-screen items-center justify-center flex-col flex space-y-6 relative bg-black/5 bg-[url('/energy.jpg')] bg-cover bg-center">
+    <div className="py-20 min-h-screen items-center justify-center flex-col flex space-y-6 relative bg-black/95 bg-[url('/energy.jpg')] bg-cover bg-center">
       <div className="absolute inset-0 bg-black/80 z-0"></div>
       {/* Text on the top */}
       <div className="flex flex-col justify-between text-white w-full container p-8 gap-y-4 z-10">
@@ -92,8 +92,10 @@ const KenyaMap: React.FC<KenyaMapProps> = ({ geoJsonData, locations }) => {
               fireless cookers, and fuel-saving stoves. Our vendors are
               committed to providing sustainable and eco-friendly cooking
               options that help reduce reliance on traditional fuels, improve
-              health outcomes, and contribute to environmental conservation. By
-              choosing to purchase from our network, you are supporting local
+              health outcomes, and contribute to environmental conservation.
+            </p>
+            <p>
+              By choosing to purchase from our network, you are supporting local
               businesses and promoting the adoption of clean energy technologies
               in Kenya.
             </p>
@@ -178,7 +180,7 @@ const KenyaMap: React.FC<KenyaMapProps> = ({ geoJsonData, locations }) => {
               </span>{" "}
               <span className="text-title-large italic ">Vendors</span>
             </h2>
-            <p>
+            <p className="text-slate-300 text-title-small">
               We have more 10 vendors across kenya selling you energy efficient
               solutions at affordable prices and the list is constantly growing
             </p>
@@ -190,7 +192,7 @@ const KenyaMap: React.FC<KenyaMapProps> = ({ geoJsonData, locations }) => {
               </span>{" "}
               <span className="text-title-large italic">Energy solutions</span>
             </h2>
-            <p>
+            <p className="text-slate-300 text-title-small">
               Our vendors have a wide range of products to choose from that are
               aimed at energy efficiency and keeping the world green
             </p>
