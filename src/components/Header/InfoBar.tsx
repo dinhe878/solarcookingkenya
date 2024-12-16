@@ -17,9 +17,9 @@ const InfoBar = () => {
               <IoCallOutline />
             </span>
             <a
-              href="tel:+1234567890"
+              href="tel:+254751530056"
               className="hover:text-secondary text-label-medium">
-              +123 456 7890
+              +254 751 530056
             </a>
           </div>
           <div className="flex items-center">
@@ -27,9 +27,9 @@ const InfoBar = () => {
               <IoMailOutline />
             </span>
             <a
-              href="mailto:info@yourwebsite.com"
+              href="mailto:asulmacentre@yahoo.com"
               className="hover:text-secondary text-label-medium">
-              info@yourwebsite.com
+              asulmacentre@yahoo.com
             </a>
           </div>
           <div className="flex items-center">
