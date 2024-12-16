@@ -10,7 +10,7 @@ export default function FactsSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const FACTS = [
     {
-      fact: "3500+",
+      fact: "5000+",
       title: "Happy Clients",
       summary:
         "We have helped over 3500 families in Kenya to adopt solar cooking.",
@@ -25,14 +25,14 @@ export default function FactsSection() {
       icon: GrUserExpert,
       button: "#",
     },
-    {
-      fact: "100%",
-      title: "Customer Satisfaction",
-      summary:
-        "We have impacted more 3000 lives in rural and marginalized communities",
-      icon: IoShieldCheckmark,
-      button: "#",
-    },
+    // {
+    //   fact: "100%",
+    //   title: "Customer Satisfaction",
+    //   summary:
+    //     "We have impacted more 3000 lives in rural and marginalized communities",
+    //   icon: IoShieldCheckmark,
+    //   button: "#",
+    // },
     {
       fact: "10+",
       title: "Products",
@@ -84,13 +84,13 @@ export default function FactsSection() {
             </div>
           </div>
         </div>
-        <div className="flex space-x-6 py-8 justify-between mx-auto">
+        <div className="flex space-x-6 py-8 justify-center mx-auto">
           {FACTS.map((fact, index) => {
             const Icon = fact.icon;
             return (
               <div
                 key={index}
-                className="bg-card text-foreground w-1/4 h-[400px] p-10 flex flex-col rounded-lg">
+                className="bg-card text-foreground w-1/3 h-[400px] p-10 flex flex-col rounded-lg">
                 <div className="flex-1 flex flex-col items-center justify-between space-y-4 text-center">
                   <div className="bg-green-100 p-4 rounded-full flex items-center justify-center">
                     <Icon className="" size={30} />

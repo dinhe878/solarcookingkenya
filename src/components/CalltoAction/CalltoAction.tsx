@@ -8,8 +8,8 @@ export default function CalltoAction() {
       <div className="w-2/5 relative h-full items-center flex flex-col space-y-4 justify-center">
         <div className="absolute top-40 left-0 z-10 p-8 bg-secondary text-secondary-foreground rounded-lg text-left">
           <Users className="text-secondary-foreground w-20 h-10 mb-2" />
-          <p className="text-display-medium font-bold">3500+</p>
-          <p className="text-label-large">Happy Clients</p>
+          <p className="text-display-medium font-bold">5000+</p>
+          <p className="text-label-large">Happy Customers</p>
         </div>
 
         <div className="relative h-full 2xl:h-3/4 w-4/5">

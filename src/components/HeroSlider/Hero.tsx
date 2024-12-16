@@ -6,7 +6,8 @@ import HeroSlider from "./HeroSlider";
 const slides = [
   {
     image: "/solarcooking1.jpg",
-    title: "Pioneers Of Solar And Renewable Energy",
+    title:
+      "Integrated Solar Cooking - a way to a healthier and more sustainable life",
     content:
       "Integrated solar cooking (ISC) can improve both health and economy for families that use firewood, charcoal, kerosene or gas for cooking. A transition to ISC will reduce deforestation and also reduce carbon emission and thus reduce global warming.",
   },

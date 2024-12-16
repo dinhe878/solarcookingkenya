@@ -27,7 +27,7 @@ export default function HeroSlider({
       <div className="absolute inset-0 bg-accent opacity-90 ">
         <div className="container mx-auto h-full flex items-center px-10">
           <div className="w-1/2 text-background space-y-6 ">
-            <h1 className="text-[80px] font-bold leading-tight tracking-tighter ">
+            <h1 className="text-[60px] font-bold leading-tight tracking-tighter ">
               {slide.title}
             </h1>
             <p className="text-body-medium text-background max-w-2xl">

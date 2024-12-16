@@ -1,6 +1,8 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import kenyageoJsonData from "../../../../public/kenya.json";
 import Vendors from "@/components/Vendors/Vendors";
+import { KENYAN_COUNTIES } from "@/constants/kenyanLocations";
 
 const ContactUsPage = () => {
   const locations = {
@@ -104,6 +106,11 @@ const ContactUsPage = () => {
     },
   };
 
+  const [selectedCounty, setSelectedCounty] = useState("");
+  const [selectedVendor, setSelectedVendor] = useState("");
+
+  const vendorNames = Object.values(locations).map((location) => location.name);
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -130,8 +137,9 @@ const ContactUsPage = () => {
 
       {/* Contact Form */}
       <div className="bg-background text-foreground">
-        <div className="container mx-auto grid md:grid-cols-2 gap-8 items-stretch">
-          <div className="py-16">
+        <div className="container mx-auto flex flex-col gap-8 items-stretch py-16">
+          {/* Form Section */}
+          <div className="p-8">
             <p className="text-title-small font-semibold text-accent">
               Get in Touch
             </p>
@@ -171,6 +179,53 @@ const ContactUsPage = () => {
                   />
                 </div>
               </div>
+
+              {/* City/County Dropdown */}
+              <div>
+                <label
+                  htmlFor="county"
+                  className="block text-body-medium font-medium">
+                  City/County
+                </label>
+                <select
+                  id="county"
+                  value={selectedCounty}
+                  onChange={(e) => setSelectedCounty(e.target.value)}
+                  className="w-full bg-white/10 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border">
+                  <option value="" disabled>
+                    Select a County
+                  </option>
+                  {KENYAN_COUNTIES.map((county) => (
+                    <option key={county} value={county}>
+                      {county}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Preferred Vendor Dropdown */}
+              <div>
+                <label
+                  htmlFor="vendor"
+                  className="block text-body-medium font-medium">
+                  Preferred Vendor
+                </label>
+                <select
+                  id="vendor"
+                  value={selectedVendor}
+                  onChange={(e) => setSelectedVendor(e.target.value)}
+                  className="w-full bg-white/10 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border">
+                  <option value="" disabled>
+                    Select a Vendor
+                  </option>
+                  {vendorNames.map((vendor) => (
+                    <option key={vendor} value={vendor}>
+                      {vendor}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
               <div>
                 <label
                   htmlFor="message"
@@ -183,7 +238,8 @@ const ContactUsPage = () => {
                   rows={5}
                   className="w-full border bg-white/10 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
                   placeholder="Enter your message"
-                  required></textarea>
+                  required
+                />
               </div>
               <button
                 type="submit"
@@ -192,9 +248,10 @@ const ContactUsPage = () => {
               </button>
             </form>
           </div>
-          <div className="relative h-full mr-0">
-            <Vendors locations={locations} geoJsonData={kenyageoJsonData} />
-          </div>
+        </div>
+        {/* Vendors Component */}
+        <div className="relative">
+          <Vendors locations={locations} geoJsonData={kenyageoJsonData} />
         </div>
       </div>
     </div>
