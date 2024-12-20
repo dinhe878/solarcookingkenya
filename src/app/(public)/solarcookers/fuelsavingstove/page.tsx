@@ -40,7 +40,7 @@ const RocketStovePage = () => {
           backgroundPosition: "center",
         }}>
         <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="container relative mx-auto px-4 py-16 grid md:grid-cols-2 gap-8 items-center">
+        <div className="container relative mx-auto px-8 py-16 grid md:grid-cols-2 gap-8 items-center">
           <div>
             <h1 className="text-[80px] font-bold leading-tight tracking-tighter">
               Fuel Saving (Rocket Stove)
@@ -56,7 +56,7 @@ const RocketStovePage = () => {
       </div>
 
       {/* Process Section */}
-      <div className="py-20  bg-gray-200 items-center justify-center flex-col flex space-y-6">
+      <div className="py-20 bg-gray-200 items-center justify-center flex-col flex space-y-6">
         <div className="container mx-auto items-center justify-center px-10 flex-1 flex flex-col space-y-4">
           <div className="flex flex-col space-y-4 w-full text-center justify-center items-center">
             <p className="text-title-small font-semibold text-secondary">
@@ -95,7 +95,7 @@ const RocketStovePage = () => {
       </div>
 
       {/* Procedure Section */}
-      <div className="bg-secondary text-secondary-foreground">
+      <div className="bg-secondary text-secondary-foreground px-8">
         <div className="container mx-auto grid md:grid-cols-2 gap-8 items-stretch">
           <div className="py-16">
             <p className="text-title-small font-semibold text-accent">
@@ -155,7 +155,7 @@ const RocketStovePage = () => {
 
       {/* Important Points & Advantages */}
       <div className="py-16">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-8">
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-6">
               <h2 className="text-display-medium font-bold leading-tight w-1/2 my-4">
