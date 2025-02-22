@@ -16,14 +16,15 @@ const Header = () => {
     <header className="bg-background text-foreground z-50">
       <InfoBar />
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center py-4">
+        <div className="flex justify-between items-center py-1">
           <Link href="/">
             <Image
-              src="/logo.png"
+              src="/logo.svg"
               width={200}
               height={100}
               alt="Solar Cooking Kenya"
               priority
+              className="pl-4"
             />
           </Link>
 
@@ -84,7 +85,7 @@ const Header = () => {
                 <div className="flex justify-between items-center py-4">
                   <Link href="/">
                     <Image
-                      src="/logo.png"
+                      src="/logo.svg"
                       width={200}
                       height={100}
                       alt="Solar Cooking Kenya"
