@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { ROUTES } from "@/constants/route";
 import Image from "next/image";
@@ -15,45 +15,38 @@ const Header = () => {
   return (
     <header className="bg-background text-foreground z-50">
       <InfoBar />
-      <div className="flex justify-between items-center ">
-        <Image
-          src="/logo.png"
-          width={200}
-          height={100}
-          alt="Solar Cooking Kenya"
-          priority
-        />
+      <div className="container mx-auto px-4">
+        <div className="flex justify-between items-center py-4">
+          <Link href="/">
+            <Image
+              src="/logo.png"
+              width={200}
+              height={100}
+              alt="Solar Cooking Kenya"
+              priority
+            />
+          </Link>
 
-        {/* Mobile menu button */}
-        <button
-          className="lg:hidden"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-
-        <div className="flex justify-between items-center">
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex space-x-8 uppercase text-title-small font-semibold mx-5 items-center">
-            {ROUTES.map((route, index) =>
+          <nav className="hidden lg:flex items-center gap-8">
+            {ROUTES.map((route) =>
               route.dropdown ? (
                 <div
-                  key={index}
+                  key={route.name}
                   className="relative"
                   onMouseEnter={() => setDropdownOpen(true)}
                   onMouseLeave={() => setDropdownOpen(false)}>
-                  <button className="hover:text-secondary hover:font-bold uppercase text-title-small font-semibold py-5 flex items-center justify-between">
+                  <button className="flex items-center gap-1 hover:text-primary">
                     {route.name}
-                    <span className="ml-2">
-                      <ChevronDown size={20} />
-                    </span>
+                    <ChevronDown size={16} />
                   </button>
                   {dropdownOpen && (
-                    <div className="absolute left-0 bg-background shadow-lg w-[200px] z-50">
-                      {route.dropdown.map((item, subIndex) => (
+                    <div className="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 min-w-[200px]">
+                      {route.dropdown.map((item) => (
                         <Link
-                          key={subIndex}
+                          key={item.name}
                           href={item.path}
-                          className="block px-4 py-4 hover:text-secondary-foreground hover:bg-secondary ">
+                          className="block px-4 py-2 hover:bg-gray-100">
                           {item.name}
                         </Link>
                       ))}
@@ -62,53 +55,84 @@ const Header = () => {
                 </div>
               ) : (
                 <Link
-                  key={index}
+                  key={route.name}
                   href={route.path}
-                  className="hover:text-secondary hover:font-bold  py-5">
+                  className="hover:text-primary">
                   {route.name}
                 </Link>
               )
             )}
+            <div className="hidden lg:block">
+              <BuyButton />
+            </div>
           </nav>
-          <BuyButton />
+
+          {/* Mobile menu button */}
+          <button
+            className="lg:hidden"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="lg:hidden absolute top-16 left-0 right-0 bg-gray-800 p-4">
-            {ROUTES.map((route, index) =>
-              route.dropdown ? (
-                <div key={index}>
+          <>
+            <div className="lg:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-40" />
+            <div className="lg:hidden fixed inset-0 bg-background z-50 overflow-y-auto">
+              <div className="container mx-auto px-4">
+                <div className="flex justify-between items-center py-4">
+                  <Link href="/">
+                    <Image
+                      src="/logo.png"
+                      width={200}
+                      height={100}
+                      alt="Solar Cooking Kenya"
+                      priority
+                    />
+                  </Link>
                   <button
-                    onClick={() => setDropdownOpen(!dropdownOpen)}
-                    className="w-full text-left py-2">
-                    {route.name}
+                    className="lg:hidden"
+                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                    <X size={24} />
                   </button>
-                  {dropdownOpen && (
-                    <div className="pl-4">
-                      {route.dropdown.map((item, subIndex) => (
-                        <Link
-                          key={subIndex}
-                          href={item.path}
-                          className="block py-2 hover:text-gray-300"
-                          onClick={() => setMobileMenuOpen(false)}>
-                          {item.name}
-                        </Link>
-                      ))}
-                    </div>
+                </div>
+              </div>
+              <nav className="container mx-auto px-4 py-6 flex flex-col min-h-[calc(100vh-148px)]">
+                <div className="flex-1 space-y-4">
+                  {ROUTES.map((route) =>
+                    route.dropdown ? (
+                      <div key={route.name} className="space-y-2">
+                        <div className="font-semibold">{route.name}</div>
+                        <div className="pl-4 space-y-2">
+                          {route.dropdown.map((item) => (
+                            <Link
+                              key={item.name}
+                              href={item.path}
+                              className="block py-2 hover:text-primary"
+                              onClick={() => setMobileMenuOpen(false)}>
+                              {item.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <Link
+                        key={route.name}
+                        href={route.path}
+                        className="block py-2 hover:text-primary"
+                        onClick={() => setMobileMenuOpen(false)}>
+                        {route.name}
+                      </Link>
+                    )
                   )}
                 </div>
-              ) : (
-                <Link
-                  key={index}
-                  href={route.path}
-                  className="block py-2 hover:text-gray-300"
-                  onClick={() => setMobileMenuOpen(false)}>
-                  {route.name}
-                </Link>
-              )
-            )}
-          </div>
+                <div className="pt-4 border-t mt-auto">
+                  <BuyButton fullWidth />
+                </div>
+              </nav>
+            </div>
+          </>
         )}
       </div>
     </header>
