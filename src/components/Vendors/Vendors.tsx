@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { geoMercator, geoPath } from "d3-geo";
 import { zoom as d3Zoom, ZoomBehavior } from "d3-zoom";
 import * as d3 from "d3";
@@ -56,6 +56,8 @@ const KenyaMap: React.FC<KenyaMapProps> = ({ geoJsonData, locations }) => {
 
   const pathGenerator = geoPath().projection(projection);
 
+  const [showRealMap, setShowRealMap] = useState(true);
+
   useEffect(() => {
     if (mapRef.current) {
       const svg = d3.select<SVGSVGElement, unknown>(mapRef.current);
@@ -109,96 +111,120 @@ const KenyaMap: React.FC<KenyaMapProps> = ({ geoJsonData, locations }) => {
         </div>
       </div>
 
-      <div className="flex container mx-auto relative z-10">
-        <div className="w-3/5">
-          <svg
-            ref={mapRef}
+      {/* Map Toggle Button */}
+      <button
+        onClick={() => setShowRealMap(!showRealMap)}
+        className="absolute top-4 right-4 z-20 bg-secondary text-secondary-foreground px-4 py-2 rounded-lg hover:bg-accent transition-colors flex items-center space-x-2">
+        <span>{showRealMap ? "Show Interactive Map" : "Show Real Map"}</span>
+        <ArrowRightIcon size={16} />
+      </button>
+
+      {showRealMap ? (
+        <div className="w-full h-[600px] z-10">
+          <iframe
             width="100%"
             height="100%"
-            viewBox={`0 0 ${width} ${height}`}
-            className="">
-            <g>
-              <rect
-                x={0}
-                y={0}
-                width={width}
-                height={height}
-                fill="transparent"
-              />
+            frameBorder="0"
+            allowFullScreen
+            allow="geolocation"
+            src="//umap.openstreetmap.fr/sv/map/vendors-of-integrated-solar-cooking-kenya_873172?scaleControl=false&miniMap=false&scrollWheelZoom=false&zoomControl=true&editMode=disabled&moreControl=true&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=true&onLoadPanel=caption&captionBar=false&captionMenus=true"
+          />
+        </div>
+      ) : (
+        <div className="flex container mx-auto relative z-10">
+          <div className="w-3/5">
+            <svg
+              ref={mapRef}
+              width="100%"
+              height="100%"
+              viewBox={`0 0 ${width} ${height}`}
+              className="">
+              <g>
+                <rect
+                  x={0}
+                  y={0}
+                  width={width}
+                  height={height}
+                  fill="transparent"
+                />
 
-              {geoJsonData &&
-                geoJsonData.features.map((feature, i) => (
-                  <path
-                    key={i}
-                    d={pathGenerator(feature) || ""}
-                    fill="hsl(20 14.3% 4.1%)"
-                    stroke="#2a3f4c"
-                    strokeWidth="1"
-                  />
-                ))}
+                {geoJsonData &&
+                  geoJsonData.features.map((feature, i) => (
+                    <path
+                      key={i}
+                      d={pathGenerator(feature) || ""}
+                      fill="hsl(20 14.3% 4.1%)"
+                      stroke="#2a3f4c"
+                      strokeWidth="1"
+                    />
+                  ))}
 
-              {locationArray.map((location, i) => {
-                const [x, y] = projection([location.lng, location.lat]) || [
-                  0, 0,
-                ];
+                {locationArray.map((location, i) => {
+                  const [x, y] = projection([location.lng, location.lat]) || [
+                    0, 0,
+                  ];
 
-                return (
-                  <g key={i} className="group">
-                    <circle
-                      cx={x}
-                      cy={y}
-                      r="12"
-                      className="fill-green-400 opacity-20 animate-pulse group-hover:fill-amber-400"
-                    />
-                    <circle
-                      cx={x}
-                      cy={y}
-                      r="8"
-                      className="fill-transparent stroke-amber-300 opacity-0 group-hover:opacity-75 transition-all duration-300"
-                      strokeWidth="2"
-                    />
-                    <circle
-                      cx={x}
-                      cy={y}
-                      r="5"
-                      className="fill-green-400 transition-all duration-300 group-hover:fill-amber-400 group-hover:r-6"
-                    />
-                    <g className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <LocationInfoCard location={location} x={x} y={y} />
+                  return (
+                    <g key={i} className="group">
+                      <circle
+                        cx={x}
+                        cy={y}
+                        r="12"
+                        className="fill-green-400 opacity-20 animate-pulse group-hover:fill-amber-400"
+                      />
+                      <circle
+                        cx={x}
+                        cy={y}
+                        r="8"
+                        className="fill-transparent stroke-amber-300 opacity-0 group-hover:opacity-75 transition-all duration-300"
+                        strokeWidth="2"
+                      />
+                      <circle
+                        cx={x}
+                        cy={y}
+                        r="5"
+                        className="fill-green-400 transition-all duration-300 group-hover:fill-amber-400 group-hover:r-6"
+                      />
+                      <g className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <LocationInfoCard location={location} x={x} y={y} />
+                      </g>
                     </g>
-                  </g>
-                );
-              })}
-            </g>
-          </svg>
-        </div>
-        <div className="w-2/5 flex flex-col space-y-8 p-8 rounded-lg">
-          <div className="flex flex-col space-y-4 text-white w-1/2 justify-self-start">
-            <h2>
-              <span className="text-primary font-bold text-display-large">
-                10+
-              </span>{" "}
-              <span className="text-title-large italic ">Vendors</span>
-            </h2>
-            <p className="text-slate-300 text-title-small">
-              We have more 10 vendors across kenya selling you energy efficient
-              solutions at affordable prices and the list is constantly growing
-            </p>
+                  );
+                })}
+              </g>
+            </svg>
           </div>
-          <div className="flex flex-col space-y-4 text-white w-1/2 justify-self-end ml-40">
-            <h2>
-              <span className="text-primary font-bold text-display-large">
-                3
-              </span>{" "}
-              <span className="text-title-large italic">Energy solutions</span>
-            </h2>
-            <p className="text-slate-300 text-title-small">
-              Our vendors have a wide range of products to choose from that are
-              aimed at energy efficiency and keeping the world green
-            </p>
+          <div className="w-2/5 flex flex-col space-y-8 p-8 rounded-lg">
+            <div className="flex flex-col space-y-4 text-white w-1/2 justify-self-start">
+              <h2>
+                <span className="text-primary font-bold text-display-large">
+                  10+
+                </span>{" "}
+                <span className="text-title-large italic ">Vendors</span>
+              </h2>
+              <p className="text-slate-300 text-title-small">
+                We have more 10 vendors across kenya selling you energy
+                efficient solutions at affordable prices and the list is
+                constantly growing
+              </p>
+            </div>
+            <div className="flex flex-col space-y-4 text-white w-1/2 justify-self-end ml-40">
+              <h2>
+                <span className="text-primary font-bold text-display-large">
+                  3
+                </span>{" "}
+                <span className="text-title-large italic">
+                  Energy solutions
+                </span>
+              </h2>
+              <p className="text-slate-300 text-title-small">
+                Our vendors have a wide range of products to choose from that
+                are aimed at energy efficiency and keeping the world green
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

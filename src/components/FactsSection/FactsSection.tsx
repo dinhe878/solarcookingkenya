@@ -13,7 +13,7 @@ export default function FactsSection() {
       fact: "5000+",
       title: "Happy Clients",
       summary:
-        "We have helped over 3500 families in Kenya to adopt solar cooking.",
+        "We have helped families in Kenya to adopt solar cooking.",
       icon: MdGroups,
       button: "#",
     },

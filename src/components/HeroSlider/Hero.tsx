@@ -15,7 +15,7 @@ const slides = [
     image: "/solarcooking2.jpg",
     title: "Pioneers Of Solar And Renewable Energy",
     content:
-      "Panel ovens and conical cookers are usually the less expensive ones. A panel oven or a conical cooker pay for itself by using it for around 18 meals instead of 2kg (wood fuel) per meal.",
+      "Panel ovens and conical cookers are usually the less expensive ones. A panel oven or a conical cooker pay for itself by using it for around 18 meals instead of 2kg (wood fuel) per Day.",
   },
   {
     image: "/solarcooking3.jpg",
@@ -37,7 +37,7 @@ export default function Hero() {
   };
 
   useEffect(() => {
-    const timer = setInterval(nextSlide, 10000);
+    const timer = setInterval(nextSlide, 12000);
     return () => clearInterval(timer);
   }, []);
 
