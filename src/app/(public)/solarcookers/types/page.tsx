@@ -118,7 +118,7 @@ export default function TypesOfCookers() {
           {cookerTypes.map((cooker, index) => (
             <div
               key={index}
-              className={`bg-card rounded-lg overflow-hidden shadow-lg flex flex-col ${
+              className={`bg-card rounded-lg overflow-hidden shadow-sm cursor-pointer flex flex-col ${
                 index === 0 || index === 3 ? "md:col-span-2 lg:col-span-2" : ""
               }`}>
               <div className="relative h-[250px] group">
