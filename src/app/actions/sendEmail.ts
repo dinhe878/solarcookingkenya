@@ -19,15 +19,11 @@ export async function sendEmail(formData: FormData) {
   const vendor = formData.get("vendor");
   const message = formData.get("message");
 
-  console.log("Sending email with credentials:", {
-    from: process.env.EMAIL_USER,
-    to: "asulmacentre@yahoo.com",
-  });
 
   try {
     await transporter.sendMail({
       from: `"Solar Cooking Kenya" <${process.env.EMAIL_USER}>`,
-      to: "asulmacentre@yahoo.com",
+      to: "judefabiano99@gmail.com",
       replyTo: email as string,
       subject: `New Inquiry from ${name}`,
       html: `
