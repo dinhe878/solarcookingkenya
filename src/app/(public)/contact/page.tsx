@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import kenyageoJsonData from "../../../../public/kenya.json";
 import Vendors from "@/components/Vendors/Vendors";
 import { KENYAN_COUNTIES } from "@/constants/kenyanLocations";
+import { sendEmail } from "@/app/actions/sendEmail";
 
 const ContactUsPage = () => {
   const locations = {
@@ -108,8 +109,52 @@ const ContactUsPage = () => {
 
   const [selectedCounty, setSelectedCounty] = useState("");
   const [selectedVendor, setSelectedVendor] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    success?: boolean;
+    message?: string;
+  } | null>(null);
 
   const vendorNames = Object.values(locations).map((location) => location.name);
+
+  const handleSubmit = async (formData: FormData) => {
+    try {
+      setIsSubmitting(true);
+
+      // Add artificial delay
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+
+      const result = await sendEmail(formData);
+
+      setSubmitStatus({
+        success: result.success,
+        message: result.success
+          ? "Message sent successfully!"
+          : "Failed to send message. Please try again.",
+      });
+
+      if (result.success) {
+        // Wait 3 seconds before resetting form
+        await new Promise((resolve) => setTimeout(resolve, 3000));
+
+        // Reset all form states
+        setSelectedCounty("");
+        setSelectedVendor("");
+        setSubmitStatus(null);
+
+        // Reset form fields
+        const form = document.querySelector("form") as HTMLFormElement;
+        if (form) form.reset();
+      }
+    } catch (error) {
+      setSubmitStatus({
+        success: false,
+        message: "An error occurred. Please try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="min-h-screen">
@@ -146,7 +191,7 @@ const ContactUsPage = () => {
             <h2 className="text-display-medium font-bold leading-tight w-3/4 my-4">
               Submit Your Inquiry
             </h2>
-            <form className="space-y-4">
+            <form action={handleSubmit} className="space-y-4">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label
@@ -165,16 +210,18 @@ const ContactUsPage = () => {
                 </div>
                 <div>
                   <label
-                    htmlFor="email"
+                    htmlFor="contact"
                     className="block text-body-medium font-medium">
-                    Email
+                    Email or Phone Number
                   </label>
                   <input
-                    type="email"
-                    id="email"
+                    type="text"
+                    id="contact"
                     name="email"
                     className="w-full border bg-white/10 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
-                    placeholder="Enter your email"
+                    placeholder="Enter your email or phone number"
+                    pattern="^(?:\d{10}|\w+@\w+\.\w{2,3})$"
+                    title="Please enter a valid email address or 10-digit phone number"
                     required
                   />
                 </div>
@@ -189,6 +236,7 @@ const ContactUsPage = () => {
                 </label>
                 <select
                   id="county"
+                  name="county"
                   value={selectedCounty}
                   onChange={(e) => setSelectedCounty(e.target.value)}
                   className="w-full bg-white/10 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border">
@@ -212,6 +260,7 @@ const ContactUsPage = () => {
                 </label>
                 <select
                   id="vendor"
+                  name="vendor"
                   value={selectedVendor}
                   onChange={(e) => setSelectedVendor(e.target.value)}
                   className="w-full bg-white/10 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border">
@@ -243,10 +292,22 @@ const ContactUsPage = () => {
               </div>
               <button
                 type="submit"
-                className="bg-accent text-accent-foreground px-6 py-3 rounded-lg hover:bg-accent-focus transition-colors">
-                Submit
+                disabled={isSubmitting}
+                className="bg-accent text-accent-foreground px-6 py-3 rounded-lg hover:bg-accent-focus transition-colors disabled:opacity-90 flex items-center justify-center w-32">
+                {isSubmitting ? <span>Sending...</span> : "Submit"}
               </button>
             </form>
+
+            {submitStatus && (
+              <div
+                className={`mt-4 p-4 rounded-lg ${
+                  submitStatus.success
+                    ? "bg-green-100 text-green-800"
+                    : "bg-red-100 text-red-800"
+                }`}>
+                {submitStatus.message}
+              </div>
+            )}
           </div>
         </div>
         {/* Vendors Component */}
