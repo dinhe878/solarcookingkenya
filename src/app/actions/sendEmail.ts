@@ -23,7 +23,7 @@ export async function sendEmail(formData: FormData) {
   try {
     await transporter.sendMail({
       from: `"Solar Cooking Kenya" <${process.env.EMAIL_USER}>`,
-      to: "judefabiano99@gmail.com",
+      to: "asulmacentre@yahoo.com",
       replyTo: email as string,
       subject: `New Inquiry from ${name}`,
       html: `
