@@ -15,8 +15,8 @@ const Header = () => {
   return (
     <header className="bg-background text-foreground z-50">
       <InfoBar />
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center py-1">
+      <div className="container mx-auto">
+        <div className="flex justify-between items-center py-0">
           <Link href="/">
             <Image
               src="/logo.svg"
@@ -29,25 +29,27 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
-            {ROUTES.map((route) =>
+          <nav className="hidden lg:flex space-x-8 uppercase text-title-small font-semibold items-center">
+            {ROUTES.map((route, index) =>
               route.dropdown ? (
                 <div
-                  key={route.name}
+                  key={index}
                   className="relative"
                   onMouseEnter={() => setDropdownOpen(true)}
                   onMouseLeave={() => setDropdownOpen(false)}>
-                  <button className="flex items-center gap-1 hover:text-primary">
+                  <button className="hover:text-secondary hover:font-bold uppercase text-title-small font-semibold py-5 flex items-center justify-between">
                     {route.name}
-                    <ChevronDown size={16} />
+                    <span className="ml-2">
+                      <ChevronDown size={20} />
+                    </span>
                   </button>
                   {dropdownOpen && (
-                    <div className="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 min-w-[200px]">
-                      {route.dropdown.map((item) => (
+                    <div className="absolute left-0 bg-background shadow-lg w-[200px] z-50">
+                      {route.dropdown.map((item, subIndex) => (
                         <Link
-                          key={item.name}
+                          key={subIndex}
                           href={item.path}
-                          className="block px-4 py-2 hover:bg-gray-100">
+                          className="block px-4 py-4 hover:text-secondary-foreground hover:bg-secondary ">
                           {item.name}
                         </Link>
                       ))}
@@ -56,9 +58,9 @@ const Header = () => {
                 </div>
               ) : (
                 <Link
-                  key={route.name}
+                  key={index}
                   href={route.path}
-                  className="hover:text-primary">
+                  className="hover:text-secondary hover:font-bold  py-5">
                   {route.name}
                 </Link>
               )
