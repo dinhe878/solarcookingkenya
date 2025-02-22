@@ -84,10 +84,10 @@ export default function TypesOfCookers() {
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="container relative mx-auto px-4 py-16 grid md:grid-cols-2 gap-8 items-center">
           <div>
-            <h1 className="text-[80px] font-bold leading-tight tracking-tighter">
+            <h1 className="text-display-medium font-bold leading-tight tracking-tighter">
               Types of Cookers
             </h1>
-            <p className="text-body-medium text-background max-w-2xl">
+            <p className="text-title-small text-background max-w-2xl">
               There are different types of solar cookers. Complexity and prices
               vary a lot.
             </p>
@@ -107,7 +107,9 @@ export default function TypesOfCookers() {
             learn more, have a look at the
             <a
               href="https://solarcooking.fandom.com/wiki/Introduction_to_solar_cooking"
-              className="text-primary hover:text-secondary ml-1">
+              className="text-primary hover:text-secondary ml-1"
+              target="_blank"
+              rel="noopener noreferrer">
               Wiki Page
             </a>{" "}
             of Solar Cookers International.
@@ -118,7 +120,7 @@ export default function TypesOfCookers() {
           {cookerTypes.map((cooker, index) => (
             <div
               key={index}
-              className={`bg-card rounded-lg overflow-hidden shadow-sm cursor-pointer flex flex-col ${
+              className={`bg-card text-black rounded-lg overflow-hidden shadow-sm cursor-pointer flex flex-col ${
                 index === 0 || index === 3 ? "md:col-span-2 lg:col-span-2" : ""
               }`}>
               <div className="relative h-[250px] group">
@@ -130,13 +132,13 @@ export default function TypesOfCookers() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70" />
-                <h3 className="absolute bottom-4 left-4 text-white font-semibold text-xl z-10">
+                <h3 className="absolute bottom-4 left-4 text-white font-semibold text-title-large z-10">
                   {cooker.title}
                 </h3>
               </div>
 
               <div className="p-6 flex-1 flex flex-col">
-                <p className="text-muted-foreground mb-4 flex-1">
+                <p className="text-muted-foreground mb-4 flex-1 text-body-large text-black">
                   {cooker.description}
                 </p>
                 {cooker.advantages && (
@@ -144,7 +146,9 @@ export default function TypesOfCookers() {
                     <h4 className="font-semibold text-secondary mb-2">
                       Advantages
                     </h4>
-                    <p className="text-muted-foreground">{cooker.advantages}</p>
+                    <p className="text-muted-foreground text-body-medium">
+                      {cooker.advantages}
+                    </p>
                   </div>
                 )}
                 {cooker.disadvantages && (
@@ -152,7 +156,7 @@ export default function TypesOfCookers() {
                     <h4 className="font-semibold text-secondary mb-2">
                       Disadvantages
                     </h4>
-                    <p className="text-muted-foreground">
+                    <p className="text-muted-foreground text-body-medium">
                       {cooker.disadvantages}
                     </p>
                   </div>
@@ -162,7 +166,7 @@ export default function TypesOfCookers() {
                     <h4 className="font-semibold text-secondary mb-2">
                       Temperature Range
                     </h4>
-                    <p className="text-muted-foreground">
+                    <p className="text-muted-foreground text-body-medium">
                       {cooker.temperature}
                     </p>
                   </div>
@@ -172,13 +176,17 @@ export default function TypesOfCookers() {
                     <h4 className="font-semibold text-secondary mb-2">
                       Designer
                     </h4>
-                    <p className="text-muted-foreground">{cooker.designer}</p>
+                    <p className="text-muted-foreground text-body-medium">
+                      {cooker.designer}
+                    </p>
                   </div>
                 )}
                 {cooker.warning && (
                   <div className="mt-2">
                     <h4 className="font-semibold text-red-500 mb-2">Warning</h4>
-                    <p className="text-muted-foreground">{cooker.warning}</p>
+                    <p className="text-muted-foreground text-body-medium">
+                      {cooker.warning}
+                    </p>
                   </div>
                 )}
               </div>
