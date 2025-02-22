@@ -8,6 +8,7 @@ export const ROUTES = [
       { name: "Solar Cooker", path: "/solarcookers/solarcooker" },
       { name: "Fireless Cooker", path: "/solarcookers/firelesscooker" },
       { name: "Fuel Saving Stove", path: "/solarcookers/fuelsavingstove" },
+      { name: "Types of Cookers", path: "/solarcookers/types" },
     ],
   },
   { name: "Contact Us", path: "/contact" },
