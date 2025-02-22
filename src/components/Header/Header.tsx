@@ -129,7 +129,7 @@ const Header = () => {
                   )}
                 </div>
                 <div className="pt-4 border-t mt-auto">
-                  <BuyButton fullWidth />
+                  <BuyButton />
                 </div>
               </nav>
             </div>
