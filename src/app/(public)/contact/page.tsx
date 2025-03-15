@@ -162,7 +162,7 @@ const ContactUsPage = () => {
       <div
         className="relative bg-accent text-accent-foreground"
         style={{
-          backgroundImage: `url('/energy.jpg')`,
+          backgroundImage: `url('/Kakuma_camp_solar_cooking_solarcookers_dot_org_short.png')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}>

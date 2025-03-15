@@ -1,7 +1,10 @@
+"use client"
 import React from "react";
 import Card from "./Card";
+import { useRouter } from "next/navigation";
 
 export default function Solutions() {
+  const router = useRouter()
   const PRODUCTS = [
     {
       name: "Solar Cooker",
@@ -91,7 +94,9 @@ export default function Solutions() {
         <h1 className="text-title-small font-semibold text-muted-foreground">
           Green and efficient solar solutions in Kenya.
         </h1>
-        <button className="text-title-small font-extrabold text-accent underline">
+        <button
+          onClick={() => router.push("/contact")}
+          className="text-title-small font-extrabold text-accent underline">
           Contact us to learn more!
         </button>
       </div>

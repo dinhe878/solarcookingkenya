@@ -35,7 +35,7 @@ const SolarCookerPage = () => {
       <div
         className="relative bg-accent text-accent-foreground"
         style={{
-          backgroundImage: `url('/energy.jpg')`,
+          backgroundImage: `url('/Kakuma_camp_solar_cooking_solarcookers_dot_org_short.png')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}>
@@ -48,8 +48,8 @@ const SolarCookerPage = () => {
             <p className="text-body-medium text-background max-w-2xl">
               We are helping to lead the charge in sustainable cooking solutions
               that can help you build on your past successes and prepare for the
-              future. Our solutions are recognized as one of the world&apos;s leading
-              eco-friendly alternatives.
+              future. Our solutions are recognized as one of the world&apos;s
+              leading eco-friendly alternatives.
             </p>
           </div>
         </div>

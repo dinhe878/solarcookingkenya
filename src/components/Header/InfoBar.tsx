@@ -8,8 +8,8 @@ import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 
 const InfoBar = () => {
   return (
-    <div className="bg-accent text-accent-foreground py-2 px-5 ">
-      <div className="flex justify-between items-center">
+    <div className="bg-accent text-accent-foreground py-2 mx-auto">
+      <div className="flex justify-between items-center container mx-auto px-10">
         {/* Contact Information */}
         <div className="flex space-x-6">
           <div className="flex items-center">
