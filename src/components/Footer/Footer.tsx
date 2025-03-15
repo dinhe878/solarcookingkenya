@@ -5,7 +5,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="w-full p-8 mt-20 bg-gradient-to-b from-white to-gray-400">
+    <footer className="w-full p-8 mt-20 bg-gradient-to-b from-white to-gray-300">
       <div className="flex flex-wrap justify-between items-start mx-auto container px-14">
         {/* Left Section */}
         <div className="flex flex-col items-start max-w-lg">

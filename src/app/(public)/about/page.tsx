@@ -87,7 +87,7 @@ const AboutUsPage = () => {
       </div>
 
       {/* Partners Section */}
-      <div className="bg-gray-100 py-20">
+      {/* <div className="bg-gray-100 py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-title-small font-semibold text-secondary text-center">
             Our Partners
@@ -105,7 +105,7 @@ const AboutUsPage = () => {
             />
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
