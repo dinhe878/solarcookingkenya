@@ -1,7 +1,10 @@
+"use client"
 import React from "react";
 import Image from "next/image";
 import { IoCheckmarkCircle } from "react-icons/io5";
 import { ArrowRightIcon } from "lucide-react";
+import { Button } from "../ui/button";
+import { useRouter } from "next/navigation";
 
 export default function Card({
   product,
@@ -10,6 +13,12 @@ export default function Card({
   product: any;
   index: number;
 }) {
+  const router = useRouter()
+
+  const onReadMore = (url: string)=>{
+    router.push(url)
+  }
+
   return (
     <div key={index} className="flex-1 flex flex-col items-center justify-between px-10 py-16 bg-card rounded-lg rounded-b-none relative mt-24 border-b-4 hover:border-b-8 border-secondary hover:border-accent">
       <div className="absolute -top-24 left-0 z-10 p-4 rounded-lg">
@@ -34,12 +43,14 @@ export default function Card({
             </li>
           ))}
         </ul>
-        <button className="bg-secondary w-3/5 2xl:w-2/5 text-secondary-foreground px-4 py-5 hover:bg-accent hover:text-accent-foreground flex items-center text-title-small font-semibold rounded-lg">
+        <Button
+         onClick={()=>onReadMore(product.url)}
+         className="bg-secondary w-3/5 2xl:w-2/5 text-secondary-foreground px-4 py-5 hover:bg-accent hover:text-accent-foreground flex items-center text-title-small font-semibold">
           Read More
           <span className="ml-2">
             <ArrowRightIcon />
           </span>
-        </button>
+        </Button>
       </div>
     </div>
   );

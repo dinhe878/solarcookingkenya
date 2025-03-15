@@ -4,6 +4,8 @@ import { geoMercator, geoPath } from "d3-geo";
 import { zoom as d3Zoom, ZoomBehavior } from "d3-zoom";
 import * as d3 from "d3";
 import { ArrowRightIcon } from "lucide-react";
+import { Button } from "../ui/button";
+import { useRouter } from "next/navigation";
 
 interface Location {
   name: string;
@@ -45,6 +47,7 @@ const LocationInfoCard = ({
 );
 
 const KenyaMap: React.FC<KenyaMapProps> = ({ geoJsonData, locations }) => {
+  const router = useRouter()
   const mapRef = useRef<SVGSVGElement | null>(null);
   const locationArray = Object.values(locations);
   const width = 800;
@@ -57,6 +60,8 @@ const KenyaMap: React.FC<KenyaMapProps> = ({ geoJsonData, locations }) => {
   const pathGenerator = geoPath().projection(projection);
 
   const [showRealMap, setShowRealMap] = useState(true);
+
+
 
   useEffect(() => {
     if (mapRef.current) {
@@ -73,6 +78,10 @@ const KenyaMap: React.FC<KenyaMapProps> = ({ geoJsonData, locations }) => {
       svg.call(zoomBehavior as any);
     }
   }, []);
+
+  const onBuyCooker = ()=>{
+    router.push("/contact")
+  }
 
   return (
     <div className="py-20 min-h-screen items-center justify-center flex-col flex space-y-6 relative bg-black/95 bg-[url('/energy.jpg')] bg-cover bg-center">
@@ -101,12 +110,14 @@ const KenyaMap: React.FC<KenyaMapProps> = ({ geoJsonData, locations }) => {
               businesses and promoting the adoption of clean energy technologies
               in Kenya.
             </p>
-            <button className="bg-secondary text-secondary-foreground px-4 py-5 hover:bg-primary hover:text-primary-foreground flex items-center text-title-small font-semibold">
+            <Button
+              onClick={onBuyCooker}
+              className="bg-secondary text-secondary-foreground px-4 py-5 hover:bg-primary hover:text-primary-foreground flex items-center text-title-small font-semibold">
               Buy a Cooker
               <span className="ml-2">
                 <ArrowRightIcon />
               </span>
-            </button>
+            </Button>
           </div>
         </div>
       </div>
@@ -114,7 +125,7 @@ const KenyaMap: React.FC<KenyaMapProps> = ({ geoJsonData, locations }) => {
       {/* Map Toggle Button */}
       <button
         onClick={() => setShowRealMap(!showRealMap)}
-        className="absolute top-4 right-4 z-20 bg-secondary text-secondary-foreground px-4 py-2 rounded-lg hover:bg-accent transition-colors flex items-center space-x-2">
+        className="absolute top-4 right-4 z-20 bg-secondary text-secondary-foreground px-4 py-2 hover:bg-accent transition-colors flex items-center space-x-2">
         <span>{showRealMap ? "Show Interactive Map" : "Show Real Map"}</span>
         <ArrowRightIcon size={16} />
       </button>

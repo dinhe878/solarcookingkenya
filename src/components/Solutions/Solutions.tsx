@@ -8,6 +8,7 @@ export default function Solutions() {
       description:
         "Uses solar energy for cooking, making it efficient and eco-friendly. Perfect for reducing energy costs and emissions. ",
       image: "/solarcooker.svg",
+      url: "/solarcookers/solarcooker",
       features: [
         {
           id: 1,
@@ -28,6 +29,7 @@ export default function Solutions() {
       description:
         "Well-insulated to keep food hot for longer periods. Ideal for complementing solar cookers in meal preparation.",
       image: "/firelesscooker.svg",
+      url: "/solarcookers/firelesscooker",
       features: [
         {
           id: 1,
@@ -48,6 +50,7 @@ export default function Solutions() {
       description:
         "Versatile and efficient, these stoves save fuel and cook quickly. Great for use on cloudy or rainy days.",
       image: "/fuelsavingstove.svg",
+      url: "/solarcookers/fuelsavingstove",
       features: [
         {
           id: 1,

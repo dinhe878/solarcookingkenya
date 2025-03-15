@@ -1,8 +1,18 @@
+"use client";
+
 import { ArrowRightIcon, CheckCircle2, Users } from "lucide-react";
 import React from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { Button } from "../ui/button";
 
 export default function CalltoAction() {
+  const router = useRouter();
+
+  const onLearnMore = () => {
+    router.push("/about");
+  };
+
   return (
     <div className="container mx-auto flex h-screen items-center justify-evenly py-10">
       <div className="w-2/5 relative h-full items-center flex flex-col space-y-4 justify-center">
@@ -67,12 +77,14 @@ export default function CalltoAction() {
             </ol>
           </div>
         </div>
-        <button className="w-fit bg-secondary text-secondary-foreground px-4 py-5 hover:bg-primary hover:text-primary-foreground flex items-center text-title-small font-semibold">
-          <p>Learn More</p>
+        <Button
+          onClick={onLearnMore}
+          className="w-fit bg-secondary text-secondary-foreground px-8 py-3 flex items-center hover:bg-primary hover:text-primary-foreground transition-colors">
+          <p>About Us</p>
           <span className="ml-2">
             <ArrowRightIcon />
           </span>
-        </button>
+        </Button>
       </div>
     </div>
   );

@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import { Button } from "../ui/button";
+import { useRouter } from "next/navigation";
 
 export default function HeroSlider({
   slide,
@@ -10,11 +12,17 @@ export default function HeroSlider({
   index: number;
   currentSlide: number;
 }) {
+  const router = useRouter();
+
+  const onProductsClick = () => {
+    router.push("/solarcookers/types");
+  };
+
   return (
     <div
       key={index}
       className={`absolute top-0 left-0 w-full h-full transition-opacity duration-500 ${
-        currentSlide === index ? "opacity-100" : "opacity-0"
+        currentSlide === index ? "opacity-100 z-10" : "opacity-0 z-0"
       }`}>
       <Image
         src={slide.image}
@@ -24,10 +32,10 @@ export default function HeroSlider({
         priority
         className="object-cover w-full h-full"
       />
-      <div className="absolute inset-0 bg-accent opacity-90 ">
+      <div className="absolute inset-0 bg-accent opacity-90">
         <div className="container mx-auto h-full flex items-center px-10">
-          <div className="w-1/2 text-background space-y-6 ">
-            <h1 className="text-[60px] font-bold leading-tight tracking-tighter ">
+          <div className="w-1/2 text-background space-y-6">
+            <h1 className="text-[60px] font-bold leading-tight tracking-tighter">
               {slide.title}
             </h1>
             <p className="text-body-medium text-background max-w-2xl">
@@ -46,8 +54,10 @@ export default function HeroSlider({
                   />
                 ))}
               </div>
-              <button className="bg-secondary text-secondary-foreground px-8 py-3 flex items-center hover:bg-primary hover:text-primary-foreground transition-colors">
-                Our Services
+              <Button
+                onClick={onProductsClick}
+                className="bg-secondary text-secondary-foreground px-8 py-3 flex items-center hover:bg-primary hover:text-primary-foreground transition-colors">
+                Our Products
                 <svg
                   className="w-5 h-5 ml-2"
                   fill="none"
@@ -60,7 +70,7 @@ export default function HeroSlider({
                     d="M17 8l4 4m0 0l-4 4m4-4H3"
                   />
                 </svg>
-              </button>
+              </Button>
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import HeroSlider from "./HeroSlider";
+import { Button } from "../ui/button";
 
 const slides = [
   {
@@ -52,29 +53,32 @@ export default function Hero() {
         />
       ))}
 
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 items-center">
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 items-center z-20">
         {slides.map((_, index) => (
-          <button
+          <Button
+            variant="ghost"
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`w-8  rounded-full ${
+            className={`w-8 rounded-full ${
               currentSlide === index ? "bg-secondary h-2" : "bg-background h-1"
             }`}
           />
         ))}
       </div>
 
-      <button
+      <Button
+        variant="outline"
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full text-background hover:bg-foreground">
+        className="absolute bg-transparent border-none left-4 top-1/2 -translate-y-1/2 p-2 rounded-full text-background hover:bg-foreground z-20">
         <ChevronLeft size={30} />
-      </button>
+      </Button>
 
-      <button
+      <Button
+        variant="outline"
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full text-background hover:bg-foreground">
+        className="absolute bg-transparent border-none right-4 top-1/2 -translate-y-1/2 p-2 rounded-full text-background hover:bg-foreground z-20">
         <ChevronRight size={30} />
-      </button>
+      </Button>
     </div>
   );
 }

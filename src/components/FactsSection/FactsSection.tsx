@@ -5,9 +5,12 @@ import { FaShoppingBasket } from "react-icons/fa";
 import { GrUserExpert } from "react-icons/gr";
 import { IoShieldCheckmark } from "react-icons/io5";
 import { MdGroups } from "react-icons/md";
+import { Button } from "../ui/button";
+import { useRouter } from "next/navigation";
 
 export default function FactsSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const router = useRouter();
   const FACTS = [
     {
       fact: "5000+",
@@ -43,6 +46,14 @@ export default function FactsSection() {
     },
   ];
 
+  const onBuyCooker = () => {
+    router.push("/contact");
+  };
+
+  const onExploreSolutions = () => {
+    router.push("/solarcookers/types");
+  };
+
   return (
     <div className="py-10 bg-accent text-accent-foreground min-h-screen">
       <div className="container mx-auto items-center justify-between px-10">
@@ -71,15 +82,19 @@ export default function FactsSection() {
                 </p>
               </div>
               <div className="flex space-x-4 py-6">
-                <button className="bg-secondary text-secondary-foreground px-4 py-5 hover:bg-primary hover:text-primary-foreground flex items-center text-title-small font-semibold">
+                <Button
+                  onClick={onBuyCooker}
+                className="bg-secondary text-secondary-foreground px-4 py-5 hover:bg-primary hover:text-primary-foreground flex items-center text-title-small font-semibold">
                   Buy A cooker
                   <span className="ml-2">
                     <ArrowRightIcon />
                   </span>
-                </button>
-                <button className="bg-transparent border border-accent-foreground flex items-center text-title-small px-4 py-5 hover:text-accent hover:bg-accent-foreground transition-colors">
+                </Button>
+                <Button
+                  onClick={onExploreSolutions}
+                  className="bg-transparent border border-accent-foreground flex items-center text-title-small px-4 py-5 hover:text-accent hover:bg-accent-foreground transition-colors">
                   Explore our Solutions
-                </button>
+                </Button>
               </div>
             </div>
           </div>
@@ -102,20 +117,24 @@ export default function FactsSection() {
                   </div>
                   <div className="mt-4 flex w-full justify-center">
                     {hoveredIndex === index ? (
-                      <button
+                      <Button
+                        size="lg"
+                        onClick={onExploreSolutions}
                         onMouseLeave={() => setHoveredIndex(null)}
                         className="flex items-center text-title-small w-2/3 justify-center p-4 hover:text-accent-foreground hover:bg-accent transition-colors rounded-full">
                         <span className="mr-4">
                           <ArrowRightIcon />
                         </span>
                         Explore
-                      </button>
+                      </Button>
                     ) : (
-                      <button
+                      <Button
+                        size="lg"
+                        onClick={onExploreSolutions}
                         onMouseEnter={() => setHoveredIndex(index)}
                         className="bg-secondary text-secondary-foreground p-4 flex items-center text-title-small font-semibold rounded-full">
                         <ArrowRightIcon />
-                      </button>
+                      </Button>
                     )}
                   </div>
                 </div>
