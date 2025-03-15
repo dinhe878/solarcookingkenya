@@ -3,7 +3,7 @@ import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
-
+import { Analytics } from "@vercel/analytics/react";
 // const roboto = Roboto({
 //   subsets: ["latin"],
 //   weight: ["100", "300", "400", "500", "700", "900"],
@@ -44,6 +44,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
