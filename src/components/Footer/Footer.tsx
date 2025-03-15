@@ -5,13 +5,13 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="w-full p-8 mt-20 bg-gray-100">
-      <div className="flex flex-wrap justify-between items-start mx-auto container">
+    <footer className="w-full p-8 mt-20 bg-gradient-to-b from-white to-gray-400">
+      <div className="flex flex-wrap justify-between items-start mx-auto container px-14">
         {/* Left Section */}
         <div className="flex flex-col items-start max-w-lg">
           <Link className="flex items-center" href="/">
             <Image
-              src="/logo.png"
+              src="/logo.svg"
               width={200}
               height={100}
               alt="Solar Cooking Kenya"
@@ -79,8 +79,15 @@ export default function Footer() {
       </div>
 
       {/* Bottom Section */}
-      <div className="flex flex-wrap justify-between items-center mx-auto container mt-10 text-start text-gray-800 text-sm">
-        © {new Date().getFullYear()} Solar Cooking Kenya. All rights reserved.
+      <div className="flex flex-wrap items-center mx-auto container mt-10 text-start text-gray-800 text-sm px-14">
+        &copy; {new Date().getFullYear()} Solar Cooking Kenya. All rights
+        reserved. Made with <span className="text-red-500">❤️</span> by
+        <Link
+          href="https://judefabianodev.online"
+          target="_blank"
+          className="text-primary hover:text-secondary ml-1">
+          Fabiano J.
+        </Link>
       </div>
     </footer>
   );

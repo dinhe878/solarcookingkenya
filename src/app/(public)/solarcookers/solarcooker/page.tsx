@@ -40,7 +40,7 @@ const SolarCookerPage = () => {
           backgroundPosition: "center",
         }}>
         <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="container relative mx-auto px-8 py-16 grid md:grid-cols-2 gap-8 items-center">
+        <div className="container relative mx-auto px-14 py-16 grid md:grid-cols-2 gap-8 items-center">
           <div>
             <h1 className="text-[80px] font-bold leading-tight tracking-tighter">
               Solar Cooker
@@ -57,7 +57,7 @@ const SolarCookerPage = () => {
 
       {/* Process Section */}
       <div className="py-20  bg-gray-200 items-center justify-center flex-col flex space-y-6">
-        <div className="container mx-auto items-center justify-center px-10 flex-1 flex flex-col space-y-4">
+        <div className="container mx-auto items-center justify-center px-14 flex-1 flex flex-col space-y-4">
           <div className="flex flex-col space-y-4 w-full text-center justify-center items-center">
             <p className="text-title-small font-semibold text-secondary">
               High Performance Solutions For Multiple Needs!
@@ -96,7 +96,7 @@ const SolarCookerPage = () => {
       </div>
 
       {/* Procedure Section */}
-      <div className="bg-secondary text-secondary-foreground px-8">
+      <div className="bg-secondary text-secondary-foreground px-14">
         <div className="container mx-auto grid md:grid-cols-2 gap-8 items-stretch">
           <div className="py-16">
             <p className="text-title-small font-semibold text-accent">
@@ -150,7 +150,7 @@ const SolarCookerPage = () => {
       </div>
 
       {/* Important Points & Advantages */}
-      <div className="py-16 px-8">
+      <div className="py-16 px-14">
         <div className="container mx-auto">
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-6">

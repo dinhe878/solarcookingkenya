@@ -77,12 +77,12 @@ export default function TypesOfCookers() {
       <div
         className="relative bg-accent text-accent-foreground"
         style={{
-          backgroundImage: `url('/energy.jpg')`,
+          backgroundImage: `url('/Kakuma_camp_solar_cooking_solarcookers_dot_org_short.png')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}>
         <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="container relative mx-auto px-4 py-16 grid md:grid-cols-2 gap-8 items-center">
+        <div className="container relative mx-auto px-14 py-16 grid md:grid-cols-2 gap-8 items-center">
           <div>
             <h1 className="text-display-medium font-bold leading-tight tracking-tighter">
               Types of Cookers
@@ -96,7 +96,7 @@ export default function TypesOfCookers() {
       </div>
 
       {/* Content Section */}
-      <div className="container mx-auto py-20 px-4 md:px-8">
+      <div className="container mx-auto py-20 px-4 md:px-14">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-title-small font-semibold text-secondary">
             Type of Cookers

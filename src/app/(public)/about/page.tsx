@@ -35,7 +35,7 @@ const AboutUsPage = () => {
           backgroundPosition: "center",
         }}>
         <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="container relative mx-auto px-4 py-16 grid md:grid-cols-2 gap-8 items-center">
+        <div className="container relative mx-auto py-16 grid md:grid-cols-2 gap-8 items-center px-14">
           <div>
             <h1 className="text-[80px] font-bold leading-tight tracking-tighter">
               About Us
