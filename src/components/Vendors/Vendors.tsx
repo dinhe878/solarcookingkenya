@@ -94,8 +94,8 @@ const KenyaMap: React.FC<KenyaMapProps> = ({ geoJsonData, locations }) => {
   };
 
   return (
-    <div className="pt-20 min-h-screen items-center justify-center flex-col flex space-y-6 relative bg-black/95 bg-[url('/energy.jpg')] bg-cover bg-center">
-      <div className="absolute inset-0 bg-black/80 z-0"></div>
+    <div className="pt-20 min-h-screen items-center justify-center flex-col flex space-y-6 relative bg-black/95 bg-[url('/Lytefire.webp')] bg-cover bg-center">
+      <div className="absolute inset-0 bg-black/85 z-0"></div>
       {/* Text on the top */}
       <div className="flex flex-col justify-between text-white w-full container p-8 gap-y-4 z-10">
         <h1 className="text-title-small font-semibold text-secondary">
