@@ -48,10 +48,13 @@ const cookerTypes = [
   {
     title: "Lyetfire",
     image: "/Lytefire.jpg",
-    description: "Lytefire is a portable solar cooker that uses a unique parabolic design. It's lightweight, easy to assemble, and can reach high temperatures quickly making it ideal for outdoor cooking and camping.",
-    advantages: "Highly portable, quick assembly, and reaches cooking temperatures in minutes. Made from durable materials and includes a carrying case for easy transport.",
-    disadvantages: "Requires frequent adjustment to track the sun and works best in direct sunlight. Higher cost compared to basic panel cookers.",
-    temperature: "150 - 200 °C (302 - 392 °F)"
+    description:
+      "Lytefire is a portable solar cooker that uses a unique parabolic design. It's lightweight, easy to assemble, and can reach high temperatures quickly making it ideal for outdoor cooking and camping.",
+    advantages:
+      "Highly portable, quick assembly, and reaches cooking temperatures in minutes. Made from durable materials and includes a carrying case for easy transport.",
+    disadvantages:
+      "Requires frequent adjustment to track the sun and works best in direct sunlight. Higher cost compared to basic panel cookers.",
+    temperature: "150 - 200 °C (302 - 392 °F)",
   },
   {
     title: "Scheffler reflector",
@@ -178,14 +181,6 @@ export default function TypesOfCookers() {
                     </h4>
                     <p className="text-muted-foreground text-body-medium">
                       {cooker?.designer}
-                    </p>
-                  </div>
-                )}
-                {cooker?.warning && (
-                  <div className="mt-2">
-                    <h4 className="font-semibold text-red-500 mb-2">Warning</h4>
-                    <p className="text-muted-foreground text-body-medium">
-                      {cooker?.warning}
                     </p>
                   </div>
                 )}
