@@ -125,21 +125,21 @@ export default function TypesOfCookers() {
               }`}>
               <div className="relative h-[250px] group">
                 <Image
-                  src={cooker.image}
-                  alt={cooker.title}
+                  src={cooker?.image}
+                  alt={cooker?.title}
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70" />
                 <h3 className="absolute bottom-4 left-4 text-white font-semibold text-title-large z-10">
-                  {cooker.title}
+                  {cooker?.title}
                 </h3>
               </div>
 
               <div className="p-6 flex-1 flex flex-col">
                 <p className="text-muted-foreground mb-4 flex-1 text-body-large text-black">
-                  {cooker.description}
+                  {cooker?.description}
                 </p>
                 {cooker.advantages && (
                   <div className="mt-2">
@@ -147,7 +147,7 @@ export default function TypesOfCookers() {
                       Advantages
                     </h4>
                     <p className="text-muted-foreground text-body-medium">
-                      {cooker.advantages}
+                      {cooker?.advantages}
                     </p>
                   </div>
                 )}
@@ -157,7 +157,7 @@ export default function TypesOfCookers() {
                       Disadvantages
                     </h4>
                     <p className="text-muted-foreground text-body-medium">
-                      {cooker.disadvantages}
+                      {cooker?.disadvantages}
                     </p>
                   </div>
                 )}
@@ -167,7 +167,7 @@ export default function TypesOfCookers() {
                       Temperature Range
                     </h4>
                     <p className="text-muted-foreground text-body-medium">
-                      {cooker.temperature}
+                      {cooker?.temperature}
                     </p>
                   </div>
                 )}
@@ -177,15 +177,15 @@ export default function TypesOfCookers() {
                       Designer
                     </h4>
                     <p className="text-muted-foreground text-body-medium">
-                      {cooker.designer}
+                      {cooker?.designer}
                     </p>
                   </div>
                 )}
-                {cooker.warning && (
+                {cooker?.warning && (
                   <div className="mt-2">
                     <h4 className="font-semibold text-red-500 mb-2">Warning</h4>
                     <p className="text-muted-foreground text-body-medium">
-                      {cooker.warning}
+                      {cooker?.warning}
                     </p>
                   </div>
                 )}
