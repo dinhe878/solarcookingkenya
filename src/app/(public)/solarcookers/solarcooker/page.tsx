@@ -73,7 +73,7 @@ const SolarCookerPage = () => {
               <div
                 key={index}
                 className="bg-white p-6 rounded-lg shadow-lg border-b-4 hover:border-b-8 border-secondary hover:border-accent">
-                <div className="">
+                <div className="h-[150px] w-[150px] relative flex items-center">
                   <Image
                     src={step.icon}
                     alt={step.title}
