@@ -177,13 +177,13 @@ const KenyaMap: React.FC<KenyaMapProps> = ({ geoJsonData, locations }) => {
               <TableBody>
                 {Object.values(locations)
                   .sort((a, b) => a.name.localeCompare(b.name))
-                  .map((location: any, index) => {
+                  .map((location: any, index: number) => {
                     // Extract contact info and products from description
                     const descriptionLines =
                       location.description?.split("\n") || [];
                     const contactInfo =
                       descriptionLines.find(
-                        (line) =>
+                        (line: any) =>
                           line.includes("@") ||
                           line.includes("+") ||
                           line.includes("Contact:")
@@ -192,9 +192,9 @@ const KenyaMap: React.FC<KenyaMapProps> = ({ geoJsonData, locations }) => {
                     // Find product lines
                     const productLines =
                       descriptionLines
-                        .filter((line) =>
+                        .filter((line: any) =>
                           ["cookers", "Cookers", "stoves", "Stoves"].some(
-                            (keyword) => line.includes(keyword)
+                            (keyword: any) => line.includes(keyword)
                           )
                         )
                         .join(", ") || "Various solar products";

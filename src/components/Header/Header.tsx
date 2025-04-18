@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { ROUTES } from "@/constants/route";
 import Image from "next/image";
@@ -37,7 +37,9 @@ const Header = () => {
                   className="relative"
                   onMouseEnter={() => setDropdownOpen(true)}
                   onMouseLeave={() => setDropdownOpen(false)}>
-                  <button className="hover:text-secondary hover:font-bold uppercase text-title-small font-semibold py-5 flex items-center justify-between">
+                  <button
+                    title={`${route.name} dropdown menu`}
+                    className="hover:text-secondary hover:font-bold uppercase text-title-small font-semibold py-5 flex items-center justify-between">
                     {route.name}
                     <span className="ml-2">
                       <ChevronDown size={20} />

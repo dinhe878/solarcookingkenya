@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { ArrowUpIcon, EyeIcon, LinkIcon } from "lucide-react";
 import Image from "next/image";
 
@@ -191,11 +192,13 @@ export default function TypesOfCookers() {
       </div>
 
       {/* Back to Top Button */}
-      <button
+      <Button
+        variant="outline"
+        size="icon"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         className="fixed bottom-8 right-8 p-4 bg-primary text-white rounded-full shadow-lg hover:bg-primary/80">
         <ArrowUpIcon size={24} />
-      </button>
+      </Button>
     </div>
   );
 }
