@@ -46,12 +46,12 @@ const cookerTypes = [
       "Requires periodic reorientation, often every fifteen minutes, which may be done with a mechanical solar tracking apparatus or manually. Generally more expensive than panel and box cookers, and require more storage space.",
   },
   {
-    title: "Fresnel Lens Cookers",
-    image: "/q5.png",
-    description:
-      "A Fresnel lens can be produced in soft plastic material. Thus it can be rolled and easy to transport. Heliac AS in Denmark produces one lens and has constructed a solar cooker where you can actually cook standing up.",
-    warning:
-      "Due to the risk of fire it is preferred to be constructed in steel and not wood.",
+    title: "Lyetfire",
+    image: "/Lytefire.jpg",
+    description: "Lytefire is a portable solar cooker that uses a unique parabolic design. It's lightweight, easy to assemble, and can reach high temperatures quickly making it ideal for outdoor cooking and camping.",
+    advantages: "Highly portable, quick assembly, and reaches cooking temperatures in minutes. Made from durable materials and includes a carrying case for easy transport.",
+    disadvantages: "Requires frequent adjustment to track the sun and works best in direct sunlight. Higher cost compared to basic panel cookers.",
+    temperature: "150 - 200 °C (302 - 392 °F)"
   },
   {
     title: "Scheffler reflector",

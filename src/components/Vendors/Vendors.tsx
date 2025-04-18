@@ -6,7 +6,14 @@ import * as d3 from "d3";
 import { ArrowRightIcon } from "lucide-react";
 import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
-
+import {
+  Table,
+  TableHeader,
+  TableRow,
+  TableHead,
+  TableBody,
+  TableCell,
+} from "../ui/table";
 interface Location {
   name: string;
   description?: string;
@@ -47,7 +54,7 @@ const LocationInfoCard = ({
 );
 
 const KenyaMap: React.FC<KenyaMapProps> = ({ geoJsonData, locations }) => {
-  const router = useRouter()
+  const router = useRouter();
   const mapRef = useRef<SVGSVGElement | null>(null);
   const locationArray = Object.values(locations);
   const width = 800;
@@ -60,8 +67,7 @@ const KenyaMap: React.FC<KenyaMapProps> = ({ geoJsonData, locations }) => {
   const pathGenerator = geoPath().projection(projection);
 
   const [showRealMap, setShowRealMap] = useState(true);
-
-
+  const [showTable, setShowTable] = useState(false);
 
   useEffect(() => {
     if (mapRef.current) {
@@ -79,12 +85,16 @@ const KenyaMap: React.FC<KenyaMapProps> = ({ geoJsonData, locations }) => {
     }
   }, []);
 
-  const onBuyCooker = ()=>{
-    router.push("/contact")
-  }
+  const onBuyCooker = () => {
+    router.push("/contact");
+  };
+
+  const toggleTable = () => {
+    setShowTable(!showTable);
+  };
 
   return (
-    <div className="py-20 min-h-screen items-center justify-center flex-col flex space-y-6 relative bg-black/95 bg-[url('/energy.jpg')] bg-cover bg-center">
+    <div className="pt-20 min-h-screen items-center justify-center flex-col flex space-y-6 relative bg-black/95 bg-[url('/energy.jpg')] bg-cover bg-center">
       <div className="absolute inset-0 bg-black/80 z-0"></div>
       {/* Text on the top */}
       <div className="flex flex-col justify-between text-white w-full container p-8 gap-y-4 z-10">
@@ -96,6 +106,25 @@ const KenyaMap: React.FC<KenyaMapProps> = ({ geoJsonData, locations }) => {
             <h1 className="text-display-medium font-bold leading-tight text-white">
               Solar cookers, fireless cookers & Fuel saving stoves
             </h1>
+            {/* Toggle Buttons */}
+            <div className="flex space-x-1 pt-10">
+              <Button
+                onClick={() => setShowRealMap(!showRealMap)}
+                className="bg-secondary text-secondary-foreground px-4 py-2 hover:bg-accent transition-colors flex items-center space-x-2 rounded-l-lg"
+                disabled={showTable}>
+                <span>
+                  {showRealMap ? "Show Interactive Map" : "Show Real Map"}
+                </span>
+                {/* <ArrowRightIcon size={16} /> */}
+              </Button>
+
+              <Button
+                onClick={toggleTable}
+                className="bg-secondary text-secondary-foreground px-4 py-2 hover:bg-accent transition-colors flex items-center space-x-2 rounded-r-lg">
+                <span>{showTable ? "Show Map View" : "Show Table View"}</span>
+                {/* <ArrowRightIcon size={16} /> */}
+              </Button>
+            </div>
           </div>
           <div className="text-left w-1/2 space-y-4">
             <p>
@@ -122,118 +151,190 @@ const KenyaMap: React.FC<KenyaMapProps> = ({ geoJsonData, locations }) => {
         </div>
       </div>
 
-      {/* Map Toggle Button */}
-      <button
-        onClick={() => setShowRealMap(!showRealMap)}
-        className="absolute top-4 right-4 z-20 bg-secondary text-secondary-foreground px-4 py-2 hover:bg-accent transition-colors flex items-center space-x-2">
-        <span>{showRealMap ? "Show Interactive Map" : "Show Real Map"}</span>
-        <ArrowRightIcon size={16} />
-      </button>
+      {showTable ? (
+        <div className="w-full bg-slate-800 rounded-lg overflow-visible p-6 mb-12 container mx-auto">
+          <div className="overflow-x-auto max-h-[800px] overflow-y-auto mb-8 scrollbar-hide">
+            <Table>
+              <TableHeader className="bg-slate-700 sticky top-0">
+                <TableRow className="hover:bg-slate-700 [&>th]:hover:bg-slate-700">
+                  <TableHead className="text-primary !bg-slate-700">
+                    Vendor Name
+                  </TableHead>
+                  <TableHead className="text-primary !bg-slate-700">
+                    Location
+                  </TableHead>
+                  <TableHead className="text-primary !bg-slate-700">
+                    Description
+                  </TableHead>
+                  <TableHead className="text-primary !bg-slate-700">
+                    Contact
+                  </TableHead>
+                  <TableHead className="text-primary !bg-slate-700">
+                    Products
+                  </TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {Object.values(locations)
+                  .sort((a, b) => a.name.localeCompare(b.name))
+                  .map((location: any, index) => {
+                    // Extract contact info and products from description
+                    const descriptionLines =
+                      location.description?.split("\n") || [];
+                    const contactInfo =
+                      descriptionLines.find(
+                        (line) =>
+                          line.includes("@") ||
+                          line.includes("+") ||
+                          line.includes("Contact:")
+                      ) || "Not available";
 
-      {showRealMap ? (
-        <div className="w-full h-[600px] z-10">
-          <iframe
-            width="100%"
-            height="100%"
-            frameBorder="0"
-            allowFullScreen
-            allow="geolocation"
-            src="//umap.openstreetmap.fr/sv/map/vendors-of-integrated-solar-cooking-kenya_873172?scaleControl=false&miniMap=false&scrollWheelZoom=false&zoomControl=true&editMode=disabled&moreControl=true&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=true&onLoadPanel=caption&captionBar=false&captionMenus=true"
-          />
+                    // Find product lines
+                    const productLines =
+                      descriptionLines
+                        .filter((line) =>
+                          ["cookers", "Cookers", "stoves", "Stoves"].some(
+                            (keyword) => line.includes(keyword)
+                          )
+                        )
+                        .join(", ") || "Various solar products";
+
+                    return (
+                      <TableRow
+                        key={index}
+                        className="border-b border-slate-700 hover:bg-slate-700/50">
+                        <TableCell className="font-medium text-slate-200">
+                          {location.name}
+                        </TableCell>
+                        <TableCell className="text-slate-300">{`${location.lat.toFixed(
+                          4
+                        )}, ${location.lng.toFixed(4)}`}</TableCell>
+                        <TableCell className="text-slate-300 max-w-xs">
+                          {location.description || "No description available"}
+                        </TableCell>
+                        <TableCell className="text-slate-300">
+                          {contactInfo}
+                        </TableCell>
+                        <TableCell className="text-slate-300">
+                          {productLines}
+                        </TableCell>
+                      </TableRow>
+                    );
+                  })}
+              </TableBody>
+            </Table>
+          </div>
         </div>
       ) : (
-        <div className="flex container mx-auto relative z-10">
-          <div className="w-3/5">
-            <svg
-              ref={mapRef}
-              width="100%"
-              height="100%"
-              viewBox={`0 0 ${width} ${height}`}
-              className="">
-              <g>
-                <rect
-                  x={0}
-                  y={0}
-                  width={width}
-                  height={height}
-                  fill="transparent"
-                />
-
-                {geoJsonData &&
-                  geoJsonData.features.map((feature, i) => (
-                    <path
-                      key={i}
-                      d={pathGenerator(feature) || ""}
-                      fill="hsl(20 14.3% 4.1%)"
-                      stroke="#2a3f4c"
-                      strokeWidth="1"
+        <div className="w-full">
+          {showRealMap ? (
+            <div className="w-full h-[70vh] relative z-10">
+              <iframe
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                allowFullScreen
+                allow="geolocation"
+                src="//umap.openstreetmap.fr/sv/map/vendors-of-integrated-solar-cooking-kenya_873172?scaleControl=false&miniMap=false&scrollWheelZoom=false&zoomControl=true&editMode=disabled&moreControl=true&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=true&onLoadPanel=caption&captionBar=false&captionMenus=true"
+              />
+            </div>
+          ) : (
+            <div className="flex container mx-auto relative z-10">
+              <div className="w-3/5">
+                <svg
+                  ref={mapRef}
+                  width="100%"
+                  height="100%"
+                  viewBox={`0 0 ${width} ${height}`}
+                  className="">
+                  <g>
+                    <rect
+                      x={0}
+                      y={0}
+                      width={width}
+                      height={height}
+                      fill="transparent"
                     />
-                  ))}
 
-                {locationArray.map((location, i) => {
-                  const [x, y] = projection([location.lng, location.lat]) || [
-                    0, 0,
-                  ];
+                    {geoJsonData &&
+                      geoJsonData.features.map((feature, i) => (
+                        <path
+                          key={i}
+                          d={pathGenerator(feature) || ""}
+                          fill="hsl(20 14.3% 4.1%)"
+                          stroke="#2a3f4c"
+                          strokeWidth="1"
+                        />
+                      ))}
 
-                  return (
-                    <g key={i} className="group">
-                      <circle
-                        cx={x}
-                        cy={y}
-                        r="12"
-                        className="fill-green-400 opacity-20 animate-pulse group-hover:fill-amber-400"
-                      />
-                      <circle
-                        cx={x}
-                        cy={y}
-                        r="8"
-                        className="fill-transparent stroke-amber-300 opacity-0 group-hover:opacity-75 transition-all duration-300"
-                        strokeWidth="2"
-                      />
-                      <circle
-                        cx={x}
-                        cy={y}
-                        r="5"
-                        className="fill-green-400 transition-all duration-300 group-hover:fill-amber-400 group-hover:r-6"
-                      />
-                      <g className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <LocationInfoCard location={location} x={x} y={y} />
-                      </g>
-                    </g>
-                  );
-                })}
-              </g>
-            </svg>
-          </div>
-          <div className="w-2/5 flex flex-col space-y-8 p-8 rounded-lg">
-            <div className="flex flex-col space-y-4 text-white w-1/2 justify-self-start">
-              <h2>
-                <span className="text-primary font-bold text-display-large">
-                  10+
-                </span>{" "}
-                <span className="text-title-large italic ">Vendors</span>
-              </h2>
-              <p className="text-slate-300 text-title-small">
-                We have more 10 vendors across kenya selling you energy
-                efficient solutions at affordable prices and the list is
-                constantly growing
-              </p>
+                    {locationArray.map((location, i) => {
+                      const [x, y] = projection([
+                        location.lng,
+                        location.lat,
+                      ]) || [0, 0];
+
+                      return (
+                        <g key={i} className="group">
+                          <circle
+                            cx={x}
+                            cy={y}
+                            r="12"
+                            className="fill-green-400 opacity-20 animate-pulse group-hover:fill-amber-400"
+                          />
+                          <circle
+                            cx={x}
+                            cy={y}
+                            r="8"
+                            className="fill-transparent stroke-amber-300 opacity-0 group-hover:opacity-75 transition-all duration-300"
+                            strokeWidth="2"
+                          />
+                          <circle
+                            cx={x}
+                            cy={y}
+                            r="5"
+                            className="fill-green-400 transition-all duration-300 group-hover:fill-amber-400 group-hover:r-6"
+                          />
+                          <g className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <LocationInfoCard location={location} x={x} y={y} />
+                          </g>
+                        </g>
+                      );
+                    })}
+                  </g>
+                </svg>
+              </div>
+              <div className="w-2/5 flex flex-col space-y-8 p-8 rounded-lg">
+                <div className="flex flex-col space-y-4 text-white w-1/2 justify-self-start">
+                  <h2>
+                    <span className="text-primary font-bold text-display-large">
+                      10+
+                    </span>{" "}
+                    <span className="text-title-large italic ">Vendors</span>
+                  </h2>
+                  <p className="text-slate-300 text-title-small">
+                    We have more 10 vendors across kenya selling you energy
+                    efficient solutions at affordable prices and the list is
+                    constantly growing
+                  </p>
+                </div>
+                <div className="flex flex-col space-y-4 text-white w-1/2 justify-self-end ml-40">
+                  <h2>
+                    <span className="text-primary font-bold text-display-large">
+                      3
+                    </span>{" "}
+                    <span className="text-title-large italic">
+                      Energy solutions
+                    </span>
+                  </h2>
+                  <p className="text-slate-300 text-title-small">
+                    Our vendors have a wide range of products to choose from
+                    that are aimed at energy efficiency and keeping the world
+                    green
+                  </p>
+                </div>
+              </div>
             </div>
-            <div className="flex flex-col space-y-4 text-white w-1/2 justify-self-end ml-40">
-              <h2>
-                <span className="text-primary font-bold text-display-large">
-                  3
-                </span>{" "}
-                <span className="text-title-large italic">
-                  Energy solutions
-                </span>
-              </h2>
-              <p className="text-slate-300 text-title-small">
-                Our vendors have a wide range of products to choose from that
-                are aimed at energy efficiency and keeping the world green
-              </p>
-            </div>
-          </div>
+          )}
         </div>
       )}
     </div>

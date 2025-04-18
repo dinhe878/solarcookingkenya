@@ -14,13 +14,13 @@ const slides = [
   },
   {
     image: "/solar_cooking_dot_org.jpeg",
-    title: "Pioneers Of Solar And Renewable Energy",
+    title: "Investment repaid within 18 meals",
     content:
       "Panel ovens and conical cookers are usually the less expensive ones. A panel oven or a conical cooker pay for itself by using it for around 18 meals instead of 2kg (wood fuel) per Day.",
   },
   {
     image: "/Kakuma_Refugee_Camp_1_solar_cookers.jpeg",
-    title: "Solar Cooking Solutions For Kenya",
+    title: "Free fuel from the sun",
     content:
       "Buy the cooker in installments after an initial cash deposit. After paying for your solar cooker the sun will provide you with free fuel. Take good care of your cooker and it will last for many years. Combine with a fireless cooker to keep your meal hot and your family healthy.",
   },
@@ -38,7 +38,7 @@ export default function Hero() {
   };
 
   useEffect(() => {
-    const timer = setInterval(nextSlide, 12000);
+    const timer = setInterval(nextSlide, 60000);
     return () => clearInterval(timer);
   }, []);
 
