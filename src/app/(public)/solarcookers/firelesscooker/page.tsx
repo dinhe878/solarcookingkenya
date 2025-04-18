@@ -4,25 +4,25 @@ import Image from "next/image";
 const FirelessCookerPage = () => {
   const processSteps = [
     {
-      icon: "/fireless-step1.svg",
+      icon: "/prepare_meal.png",
       title: "Prepare the Meal",
       description:
         "Start by cooking your food on the stove until it reaches a boiling temperature.",
     },
     {
-      icon: "/fireless-step2.svg",
+      icon: "/store_in_cooker.png",
       title: "Transfer to Insulated Container",
       description:
         "Quickly transfer the hot food into an insulated container or basket to retain the heat.",
     },
     {
-      icon: "/fireless-step3.svg",
+      icon: "/cover_cooker.png",
       title: "Retain the Heat",
       description:
         "The well-insulated container will keep the food hot without any additional heat source, allowing it to continue cooking.",
     },
     {
-      icon: "/fireless-step4.svg",
+      icon: "/serve_meal.png",
       title: "Enjoy the Meal",
       description:
         "After the allotted cooking time, open the container and serve the perfectly cooked meal.",
@@ -72,12 +72,13 @@ const FirelessCookerPage = () => {
               <div
                 key={index}
                 className="bg-white p-6 rounded-lg shadow-lg border-b-4 hover:border-b-8 border-secondary hover:border-accent">
-                <div className="">
+                <div className="h-[150px] w-[150px] relative flex items-center">
                   <Image
                     src={step.icon}
                     alt={step.title}
                     width={150}
                     height={150}
+                    className="object-contain"
                   />
                 </div>
                 <div>

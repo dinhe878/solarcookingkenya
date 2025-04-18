@@ -4,25 +4,25 @@ import Image from "next/image";
 const RocketStovePage = () => {
   const processSteps = [
     {
-      icon: "/rocket-step1.svg",
+      icon: "/collect_fuel.png",
       title: "Gather Fuel",
       description:
         "Collect small, dry pieces of wood or charcoal to use as fuel for the rocket stove.",
     },
     {
-      icon: "/rocket-step2.svg",
+      icon: "/prepare_rocket.png",
       title: "Prepare the Stove",
       description:
         "Set up the rocket stove, ensuring the air inlets and fuel chamber are clear and ready for ignition.",
     },
     {
-      icon: "/rocket-step3.svg",
+      icon: "/ignite_cooker.png",
       title: "Ignite and Adjust",
       description:
         "Light the fuel and monitor the flame, adjusting the airflow as needed to maintain an efficient, low-smoke burn.",
     },
     {
-      icon: "/rocket-step4.svg",
+      icon: "/cook_meal.png",
       title: "Cook Your Meal",
       description:
         "Place your cooking pot or pan on the stove's surface and let the concentrated heat do the work.",
@@ -72,7 +72,7 @@ const RocketStovePage = () => {
               <div
                 key={index}
                 className="bg-white p-6 rounded-lg shadow-lg border-b-4 hover:border-b-8 border-secondary hover:border-accent">
-                <div className="">
+                <div className="h-[150px] w-[150px] relative flex items-center">
                   <Image
                     src={step.icon}
                     alt={step.title}
