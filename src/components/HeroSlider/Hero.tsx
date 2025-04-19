@@ -43,7 +43,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="relative h-[600px] w-full overflow-hidden">
+    <div className="relative min-h-screen h-fit lg:h-[600px] w-full overflow-hidden">
       {slides.map((slide, index) => (
         <HeroSlider
           key={index}

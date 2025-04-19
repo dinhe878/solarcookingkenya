@@ -110,7 +110,7 @@ const KenyaMap: React.FC<KenyaMapProps> = ({ geoJsonData, locations }) => {
             <div className="flex space-x-1 pt-10">
               <Button
                 onClick={() => setShowRealMap(!showRealMap)}
-                className="bg-secondary text-secondary-foreground px-4 py-2 hover:bg-accent transition-colors flex items-center space-x-2 rounded-l-lg text-body-small md:text-body-medium"
+                className="hidden lg:flex bg-secondary text-secondary-foreground px-4 py-2 hover:bg-accent transition-colors items-center space-x-2 rounded-l-lg text-body-small md:text-body-medium"
                 disabled={showTable}>
                 <span>
                   {showRealMap ? "Show Interactive Map" : "Show Real Map"}
