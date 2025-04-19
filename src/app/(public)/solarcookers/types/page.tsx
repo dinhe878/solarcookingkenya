@@ -50,12 +50,9 @@ const cookerTypes = [
     title: "Lyetfire",
     image: "/Lytefire.jpg",
     description:
-      "Lytefire is a portable solar cooker that uses a unique parabolic design. It's lightweight, easy to assemble, and can reach high temperatures quickly making it ideal for outdoor cooking and camping.",
-    advantages:
-      "Highly portable, quick assembly, and reaches cooking temperatures in minutes. Made from durable materials and includes a carrying case for easy transport.",
-    disadvantages:
-      "Requires frequent adjustment to track the sun and works best in direct sunlight. Higher cost compared to basic panel cookers.",
-    temperature: "150 - 200 °C (302 - 392 °F)",
+      "Lytefire is a large solar oven used for baking, roasting or cooking. Its size makes it practical for institutional use.",
+    advantages: "Lytefire is clean, powerful and robust.",
+    disadvantages: "Needs an open space area, a 7 m diameter circle."
   },
   {
     title: "Scheffler reflector",
