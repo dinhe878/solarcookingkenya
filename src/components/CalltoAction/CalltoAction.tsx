@@ -14,8 +14,8 @@ export default function CalltoAction() {
   };
 
   return (
-    <div className="container mx-auto flex h-screen items-center justify-evenly py-10">
-      <div className="w-2/5 relative h-full items-center flex flex-col space-y-4 justify-center">
+    <div className="container mx-auto flex lg:h-screen items-center justify-evenly py-10">
+      <div className="hidden lg:w-2/5 relative h-full items-center lg:flex flex-col space-y-4 justify-center">
         <div className="absolute top-40 left-0 z-10 p-8 bg-secondary text-secondary-foreground rounded-lg text-left">
           <Users className="text-secondary-foreground w-20 h-10 mb-2" />
           <p className="text-display-medium font-bold">5000+</p>
@@ -34,14 +34,11 @@ export default function CalltoAction() {
           <div className="absolute inset-0 bg-black bg-opacity-40 rounded-xl"></div>
         </div>
       </div>
-      <div className="w-1/2 flex flex-col space-y-4 p-5">
-        {/* <div className="items-center bg-secondary opacity-55 text-foreground font-bold text-title-small p-2 rounded-md w-fit">
-          <p>Why Choose Solar Cookers !</p>
-        </div> */}
+      <div className="lg:w-1/2 flex flex-col space-y-4 p-5">
         <h1 className="text-display-small 2xl:text-display-medium font-extrabold text-accent ">
           25+ Years Experience In Solar & Renewable Energy Solutions
         </h1>
-        <div className="flex space-x-4">
+        <div className="lg:flex space-x-4">
           <div className="space-y-4 w-1/2">
             <p className="text-accent font-semibold ">
               To provide affordable and sustainable solar cooking solutions to

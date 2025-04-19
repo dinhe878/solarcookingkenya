@@ -74,17 +74,17 @@ export default function Solutions() {
   return (
     <div className="py-20 min-h-screen bg-gray-200 items-center justify-center flex-col flex space-y-6">
       <div className="container mx-auto items-center justify-center px-10 flex-1 flex flex-col space-y-4">
-        <div className="flex flex-col space-y-4 w-full text-center justify-center items-center">
+        <div className="flex flex-col space-y-4 w-full lg:text-center justify-center lg:items-center">
           <h2 className="text-title-small font-semibold text-secondary">
             Bringing solar cooking to Kenya
           </h2>
-          <h1 className="text-display-medium font-bold leading-tight w-1/2 text-center text-accent">
+          <h1 className="text-display-medium font-bold leading-tight lg:w-1/2 lg:text-center text-accent">
             We consider ourselves trailblazers in the field of solar and
             renewable energy
           </h1>
         </div>
 
-        <div className="flex justify-between space-x-6 mx-auto relative ">
+        <div className="flex flex-wrap justify-between space-x-6 mx-auto relative ">
           {PRODUCTS.map((product, index) => {
             return <Card key={index} product={product} index={index} />;
           })}
