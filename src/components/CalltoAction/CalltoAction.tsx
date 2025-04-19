@@ -39,7 +39,7 @@ export default function CalltoAction() {
           25+ Years Experience In Solar & Renewable Energy Solutions
         </h1>
         <div className="lg:flex space-x-4">
-          <div className="space-y-4 w-1/2">
+          <div className="space-y-4 w-full md:w-3/4 lg:w-1/2">
             <p className="text-accent font-semibold ">
               To provide affordable and sustainable solar cooking solutions to
               communities in Kenya, empowering them to improve their health,
@@ -51,7 +51,7 @@ export default function CalltoAction() {
               option for all Kenyans.
             </p>
           </div>
-          <div className="space-y-4 w-1/2">
+          <div className="space-y-4 w-full md:w-3/4 lg:w-1/2">
             <p>
               Integrated solar cooking (ISC) can improve both health and economy
               for families that use firewood, charcoal, kerosene or gas for
