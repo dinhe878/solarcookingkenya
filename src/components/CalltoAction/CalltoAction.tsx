@@ -38,7 +38,7 @@ export default function CalltoAction() {
         <h1 className="text-display-small 2xl:text-display-medium font-extrabold text-accent ">
           25+ Years Experience In Solar & Renewable Energy Solutions
         </h1>
-        <div className="lg:flex space-x-4">
+        <div className="lg:flex lg:space-x-4 space-y-4">
           <div className="space-y-4 w-full md:w-3/4 lg:w-1/2">
             <p className="text-accent font-semibold ">
               To provide affordable and sustainable solar cooking solutions to

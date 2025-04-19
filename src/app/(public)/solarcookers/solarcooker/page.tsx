@@ -58,11 +58,11 @@ const SolarCookerPage = () => {
       {/* Process Section */}
       <div className="py-20  bg-gray-200 items-center justify-center flex-col flex space-y-6">
         <div className="container mx-auto items-center justify-center px-14 flex-1 flex flex-col space-y-4">
-          <div className="flex flex-col space-y-4 w-full text-center justify-center items-center">
+          <div className="flex flex-col space-y-4 w-full md:text-center justify-center md:items-center">
             <p className="text-title-small font-semibold text-secondary">
               High Performance Solutions For Multiple Needs!
             </p>
-            <h2 className="text-display-medium font-bold leading-tight w-1/2 text-center text-accent">
+            <h2 className="text-display-medium font-bold leading-tight md:w-1/2 md:text-center text-accent">
               Utilizing Latest Processing Solutions With Decades Of Work
               Experience
             </h2>
@@ -102,7 +102,7 @@ const SolarCookerPage = () => {
             <p className="text-title-small font-semibold text-accent">
               High Performance Solutions For Multiple Needs!
             </p>
-            <h2 className="text-display-medium font-bold leading-tight w-3/4 my-4">
+            <h2 className="text-display-medium font-bold leading-tight md:w-3/4 my-4">
               How To Use a Solar Cooker
             </h2>
             <div className="bg-white/10 p-6 rounded-lg mb-6">

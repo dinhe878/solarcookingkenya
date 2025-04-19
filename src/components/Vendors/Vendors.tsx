@@ -101,8 +101,8 @@ const KenyaMap: React.FC<KenyaMapProps> = ({ geoJsonData, locations }) => {
         <h1 className="text-title-small font-semibold text-secondary">
           Pioneers of solar cooking in Kenya
         </h1>
-        <div className="flex space-x-12">
-          <div className="text-left w-1/2">
+        <div className="md:flex md:space-x-12 space-y-4">
+          <div className="text-left md:w-1/2">
             <h1 className="text-display-medium font-bold leading-tight text-white">
               Solar cookers, fireless cookers & Fuel saving stoves
             </h1>
@@ -110,23 +110,22 @@ const KenyaMap: React.FC<KenyaMapProps> = ({ geoJsonData, locations }) => {
             <div className="flex space-x-1 pt-10">
               <Button
                 onClick={() => setShowRealMap(!showRealMap)}
-                className="bg-secondary text-secondary-foreground px-4 py-2 hover:bg-accent transition-colors flex items-center space-x-2 rounded-l-lg"
+                className="bg-secondary text-secondary-foreground px-4 py-2 hover:bg-accent transition-colors flex items-center space-x-2 rounded-l-lg text-body-small md:text-body-medium"
                 disabled={showTable}>
                 <span>
                   {showRealMap ? "Show Interactive Map" : "Show Real Map"}
                 </span>
                 {/* <ArrowRightIcon size={16} /> */}
               </Button>
-
               <Button
                 onClick={toggleTable}
-                className="bg-secondary text-secondary-foreground px-4 py-2 hover:bg-accent transition-colors flex items-center space-x-2 rounded-r-lg">
+                className="bg-secondary text-secondary-foreground px-4 py-2 hover:bg-accent transition-colors flex items-center space-x-2 rounded-r-lg text-body-small md:text-body-medium">
                 <span>{showTable ? "Show Map View" : "Show Table View"}</span>
                 {/* <ArrowRightIcon size={16} /> */}
               </Button>
             </div>
           </div>
-          <div className="text-left w-1/2 space-y-4">
+          <div className="text-left md:w-1/2 space-y-4 text-body-small md:text-body-medium">
             <p>
               We have a network of vendors across Kenya who sell solar cookers,
               fireless cookers, and fuel-saving stoves. Our vendors are
@@ -141,7 +140,7 @@ const KenyaMap: React.FC<KenyaMapProps> = ({ geoJsonData, locations }) => {
             </p>
             <Button
               onClick={onBuyCooker}
-              className="bg-secondary text-secondary-foreground px-4 py-5 hover:bg-primary hover:text-primary-foreground flex items-center text-title-small font-semibold">
+              className="bg-secondary text-secondary-foreground px-4 py-5 hover:bg-primary hover:text-primary-foreground flex items-center text-body-small md:text-body-medium  font-semibold">
               Buy a Cooker
               <span className="ml-2">
                 <ArrowRightIcon />

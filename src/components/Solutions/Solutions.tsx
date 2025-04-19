@@ -84,13 +84,13 @@ export default function Solutions() {
           </h1>
         </div>
 
-        <div className="flex flex-wrap justify-between space-x-6 mx-auto relative ">
+        <div className="flex flex-wrap justify-between md:space-x-4 mx-auto relative ">
           {PRODUCTS.map((product, index) => {
             return <Card key={index} product={product} index={index} />;
           })}
         </div>
       </div>
-      <div className="flex space-x-2 py-6">
+      <div className="md:flex md:space-x-2 py-6">
         <h1 className="text-title-small font-semibold text-muted-foreground">
           Green and efficient solar solutions in Kenya.
         </h1>

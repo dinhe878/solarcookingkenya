@@ -15,8 +15,7 @@ export default function FactsSection() {
     {
       fact: "5000+",
       title: "Happy Clients",
-      summary:
-        "We have helped families in Kenya to adopt solar cooking.",
+      summary: "We have helped families in Kenya to adopt solar cooking.",
       icon: MdGroups,
       button: "#",
     },
@@ -56,19 +55,19 @@ export default function FactsSection() {
 
   return (
     <div className="py-10 bg-accent text-accent-foreground min-h-screen">
-      <div className="container mx-auto items-center justify-between px-10">
+      <div className="container mx-auto items-center justify-between px-4 md:px-10">
         <div className="flex flex-col">
           <p className="text-title-small font-semibold text-secondary">
             Why Choose Solar Cookers
           </p>
-          <div className="flex space-x-4 justify-between py-5">
-            <div className="w-1/2">
+          <div className="lg:flex space-y-2 lg:space-x-4 justify-between py-5">
+            <div className="w-full md:w-3/4 lg:w-1/2">
               <h1 className="sm:text-display-medium font-bold leading-tight w-3/4">
                 Complete Economical and Safe Solution For Our Communities
               </h1>
             </div>
-            <div className="w-1/2 flex flex-col space-y-10 justify-between">
-              <div className="space-y-4">
+            <div className="w-full md:w-3/4 lg:w-1/2 flex flex-col space-y-10 lg:justify-between px-0 mx-0">
+              <div className="space-y-4 px-0 mx-0">
                 <p>
                   Integrated solar cooking (ISC) can improve both health and
                   economy for families that use firewood, charcoal, kerosene or
@@ -84,7 +83,7 @@ export default function FactsSection() {
               <div className="flex space-x-4 py-6">
                 <Button
                   onClick={onBuyCooker}
-                className="bg-secondary text-secondary-foreground px-4 py-5 hover:bg-primary hover:text-primary-foreground flex items-center text-title-small font-semibold">
+                  className="bg-secondary text-secondary-foreground px-4 py-5 hover:bg-primary hover:text-primary-foreground flex items-center text-title-small font-semibold">
                   Buy A cooker
                   <span className="ml-2">
                     <ArrowRightIcon />
@@ -99,13 +98,13 @@ export default function FactsSection() {
             </div>
           </div>
         </div>
-        <div className="flex space-x-6 py-8 justify-center mx-auto">
+        <div className="flex flex-wrap md:flex-nowrap space-y-4 md:space-y-0 md:space-x-6 py-8 justify-center mx-auto">
           {FACTS.map((fact, index) => {
             const Icon = fact.icon;
             return (
               <div
                 key={index}
-                className="bg-card text-foreground w-1/3 h-[400px] p-10 flex flex-col rounded-lg">
+                className="bg-card text-foreground w-full md:w-1/3 h-[400px] p-10 flex flex-col rounded-lg">
                 <div className="flex-1 flex flex-col items-center justify-between space-y-4 text-center">
                   <div className="bg-green-100 p-4 rounded-full flex items-center justify-center">
                     <Icon className="" size={30} />
@@ -121,7 +120,7 @@ export default function FactsSection() {
                         size="lg"
                         onClick={onExploreSolutions}
                         onMouseLeave={() => setHoveredIndex(null)}
-                        className="flex items-center text-title-small w-2/3 justify-center p-4 hover:text-accent-foreground hover:bg-accent transition-colors rounded-full">
+                        className="flex items-center text-body-small md:text-title-small w-2/3 justify-center p-4 hover:text-accent-foreground hover:bg-accent transition-colors rounded-full">
                         <span className="mr-4">
                           <ArrowRightIcon />
                         </span>
@@ -132,7 +131,7 @@ export default function FactsSection() {
                         size="lg"
                         onClick={onExploreSolutions}
                         onMouseEnter={() => setHoveredIndex(index)}
-                        className="bg-secondary text-secondary-foreground p-4 flex items-center text-title-small font-semibold rounded-full">
+                        className="bg-secondary text-secondary-foreground p-4 flex items-center text-body-small md:text-title-small font-semibold rounded-full">
                         <ArrowRightIcon />
                       </Button>
                     )}

@@ -5,7 +5,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="w-full p-8 mt-20 bg-gradient-to-b from-white to-gray-300">
+    <footer className="w-full md:p-8 mt-20 bg-gradient-to-b from-white to-gray-300">
       <div className="flex flex-wrap justify-between items-start mx-auto container px-14">
         {/* Left Section */}
         <div className="flex flex-col items-start max-w-lg">
@@ -81,7 +81,7 @@ export default function Footer() {
       {/* Bottom Section */}
       <div className="flex flex-wrap items-center mx-auto container mt-10 text-start text-gray-800 text-sm px-14">
         &copy; {new Date().getFullYear()} Solar Cooking Kenya. All rights
-        reserved. Made with <span className="text-red-500">❤️</span> by
+        reserved. Made with ❤️ <span className="text-red-500"></span> by
         <Link
           href="https://judefabianodev.online"
           target="_blank"

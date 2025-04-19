@@ -15,16 +15,15 @@ const Header = () => {
   return (
     <header className="bg-background text-foreground z-50">
       <InfoBar />
-      <div className="container mx-auto px-10">
+      <div className="container mx-auto px-2 md:px-10">
         <div className="flex justify-between items-center py-0">
           <Link href="/">
             <Image
               src="/logo.svg"
-              width={200}
+              width={220}
               height={100}
               alt="Solar Cooking Kenya"
               priority
-              className="pl-4"
             />
           </Link>
 
