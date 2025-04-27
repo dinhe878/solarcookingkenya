@@ -1,9 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import kenyageoJsonData from "../../../../public/kenya.json";
 import Vendors from "@/components/Vendors/Vendors";
 import { KENYAN_COUNTIES } from "@/constants/kenyanLocations";
-import { sendEmail } from "@/app/actions/sendEmail";
 
 const ContactUsPage = () => {
   const locations = {
@@ -114,26 +113,46 @@ const ContactUsPage = () => {
     success?: boolean;
     message?: string;
   } | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const vendorNames = Object.values(locations).map((location) => location.name);
 
-  const handleSubmit = async (formData: FormData) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
     try {
       setIsSubmitting(true);
 
-      // Add artificial delay
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const formData = new FormData(e.currentTarget);
 
-      const result = await sendEmail(formData);
+      // Create the payload for web3forms
+      const payload = {
+        access_key: "5994c855-be44-4a18-81d6-9d437ca37d05",
+        name: formData.get("name"),
+        email: formData.get("email"),
+        county: formData.get("county"),
+        vendor: formData.get("vendor"),
+        message: formData.get("message"),
+        subject: "New Contact Form Submission - Solar Cooking Kenya",
+      };
 
-      setSubmitStatus({
-        success: result.success,
-        message: result.success
-          ? "Message sent successfully!"
-          : "Failed to send message. Please try again.",
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
       });
 
+      const result = await response.json();
+
       if (result.success) {
+        setSubmitStatus({
+          success: true,
+          message: "Message sent successfully!",
+        });
+
         // Wait 3 seconds before resetting form
         await new Promise((resolve) => setTimeout(resolve, 3000));
 
@@ -142,14 +161,20 @@ const ContactUsPage = () => {
         setSelectedVendor("");
         setSubmitStatus(null);
 
-        // Reset form fields
-        const form = document.querySelector("form") as HTMLFormElement;
-        if (form) form.reset();
+        // Reset form fields using formRef
+        if (formRef.current) {
+          formRef.current.reset();
+        }
+      } else {
+        throw new Error(result.message || "Something went wrong!");
       }
     } catch (error) {
       setSubmitStatus({
         success: false,
-        message: "An error occurred. Please try again.",
+        message:
+          error instanceof Error
+            ? error.message
+            : "An error occurred. Please try again.",
       });
     } finally {
       setIsSubmitting(false);
@@ -191,7 +216,17 @@ const ContactUsPage = () => {
             <h2 className="text-display-medium font-bold leading-tight w-3/4 my-4">
               Submit Your Inquiry
             </h2>
-            <form action={handleSubmit} className="space-y-4">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
+              {/* Honeypot field to prevent spam */}
+              <input
+                type="checkbox"
+                name="botcheck"
+                className="hidden"
+                style={{ display: "none" }}
+                aria-label="Spam prevention, please don't check this"
+                tabIndex={-1}
+              />
+
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label
