@@ -27,9 +27,9 @@ const InfoBar = () => {
               <IoMailOutline />
             </span>
             <a
-              href="mailto:asulmacentre@yahoo.com"
+              href="mailto:asulmacentre@gmail.com"
               className="hover:text-secondary text-label-medium">
-              asulmacentre@yahoo.com
+              asulmacentre@gmail.com
             </a>
           </div>
           <div className="flex items-center">

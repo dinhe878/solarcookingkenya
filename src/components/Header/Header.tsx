@@ -73,6 +73,7 @@ const Header = () => {
 
           {/* Mobile menu button */}
           <button
+            title={mobileMenuOpen ? "Close menu" : "Open menu"}
             className="lg:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -96,6 +97,7 @@ const Header = () => {
                     />
                   </Link>
                   <button
+                    title={mobileMenuOpen ? "Close menu" : "Open menu"}
                     className="lg:hidden"
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
                     <X size={24} />

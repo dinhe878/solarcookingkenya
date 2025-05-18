@@ -177,26 +177,17 @@ const KenyaMap: React.FC<KenyaMapProps> = ({ geoJsonData, locations }) => {
                 {Object.values(locations)
                   .sort((a, b) => a.name.localeCompare(b.name))
                   .map((location: any, index: number) => {
-                    // Extract contact info and products from description
-                    const descriptionLines =
-                      location.description?.split("\n") || [];
-                    const contactInfo =
-                      descriptionLines.find(
-                        (line: any) =>
-                          line.includes("@") ||
-                          line.includes("+") ||
-                          line.includes("Contact:")
-                      ) || "Not available";
-
-                    // Find product lines
-                    const productLines =
-                      descriptionLines
-                        .filter((line: any) =>
-                          ["cookers", "Cookers", "stoves", "Stoves"].some(
-                            (keyword: any) => line.includes(keyword)
-                          )
-                        )
-                        .join(", ") || "Various solar products";
+                    const contactInfo = location.contact
+                      ? location.contact
+                          .split("\n")
+                          .map((line: string, i: number) => (
+                            <p
+                              key={`${index}-${i}-${line}`}
+                              className="text-slate-300">
+                              {line}
+                            </p>
+                          ))
+                      : "No contact information available";
 
                     return (
                       <TableRow
@@ -215,7 +206,7 @@ const KenyaMap: React.FC<KenyaMapProps> = ({ geoJsonData, locations }) => {
                           {contactInfo}
                         </TableCell>
                         <TableCell className="text-slate-300">
-                          {productLines}
+                          {location.products}
                         </TableCell>
                       </TableRow>
                     );

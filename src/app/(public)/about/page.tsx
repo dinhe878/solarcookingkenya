@@ -58,11 +58,9 @@ const AboutUsPage = () => {
             Bringing Solar Cooking to Kenya
           </h1>
           <p className="text-body-medium mt-4 max-w-3xl mx-auto">
-            This web page was constructed in a Solar Cooking Project by EWB
-            Sweden with support from Volvoanställdas Utvecklingshjälp. We are
-            committed to providing sustainable and eco-friendly cooking options
-            that help reduce reliance on traditional fuels, improve health
-            outcomes, and contribute to environmental conservation.
+            We are a network of vendors and entrepreneurs for Integrated Soalr
+            Cooking in Kenya. Our goal is for as many people as possible to
+            discover the benefits of Integrated Solar Cooking, ISC.
           </p>
         </div>
 
@@ -85,27 +83,6 @@ const AboutUsPage = () => {
           ))}
         </div>
       </div>
-
-      {/* Partners Section */}
-      {/* <div className="bg-gray-100 py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-title-small font-semibold text-secondary text-center">
-            Our Partners
-          </h2>
-          <div className="flex items-center justify-center gap-8 mt-8">
-            <img
-              src="/ewb_logo_green_RGB.png"
-              alt="EWB Logo"
-              className="h-16 object-contain"
-            />
-            <img
-              src="/VUH_logo.png"
-              alt="VUH Logo"
-              className="h-16 object-contain"
-            />
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 };

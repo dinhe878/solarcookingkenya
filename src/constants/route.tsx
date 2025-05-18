@@ -45,8 +45,8 @@ export const FOOTER_LINKS = [
     links: [
       { path: "tel:+254751530056", name: "+254 751 530056" },
       {
-        path: "mailto:asulmacentre@yahoo.com",
-        name: "asulmacentre@yahoo.com",
+        path: "mailto:asulmacentre@gmail.com",
+        name: "asulmacentre@gmail.com",
       },
     ],
   },
