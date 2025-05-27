@@ -6,6 +6,7 @@ export interface CookerType {
   disadvantages?: string;
   temperature?: string;
   designer?: string;
+  specifications?: string;
 }
 
 const cookerTypes: CookerType[] = [
@@ -62,8 +63,14 @@ const cookerTypes: CookerType[] = [
     title: "Scheffler reflector",
     image: "/q6.png",
     description:
-      "The Scheffler reflector (named after Wolfgang Scheffler who invented it) is a special cooker which needs a sun tracker and is mainly used for institutional cooking.",
-    advantages: "A great advantage is that you can cook indoors.",
+      "Invented by physicist Wolfgang Scheffler in the early 80's, Scheffler dishes have a unique fixed-focus design that enables direct cooking through a solar window onto a pot placed at the fixed focus, or through the indirect transportation of solar-generated heat - transported in steam or thermic fluid - and piped into the kitchen building, making it possible to prepare meals for over 1,000 persons with solar energy.",
+    advantages:
+      "A great advantage is that you can cook indoors. The solar kitchen deploys large parabolic dishes in 8 (3 kW), 16 (6 kW), and 20 (7.5 kW) m² that track the sun while focusing sun rays on a fixed pot holder, a steam generator, or a thermic fluid heater. Commercial and institutional solar kitchens may be designed and constructed to cook directly or generate steam and may be integrated with gas, steam and wood fuel systems to reduce the costs of commodity fuels by up to 60% while delivering meals for anything from 50 persons to several hundred over 200 - 270 days a year.",
+    disadvantages:
+      "The parabolic dish requires 2-3 manually-affected seasonal adjustments every week. Requires significant space and investment. May be manually tracked, fitted with semi-automatic gravity powered mechanical clock or by photo – sensor activated DC motors powered by solar PV.",
+    temperature: "High temperatures suitable for institutional cooking",
+    specifications:
+      "Reflector aperture: 16m²\nNominal peak thermal power: 5.5 - 6 kW\nPot capacity: 50-100 litres\nCooking capacity: Up to 200 meals/day, depending on menu",
   },
   {
     title: "Evacuated tube cookers",

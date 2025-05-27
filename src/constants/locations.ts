@@ -56,10 +56,12 @@ export const locations = {
     name: "6 - Thermofield Industrial",
     lat: -1.328542,
     lng: 36.697773,
-    description: "Position not exact.\nScheffler reflectors\n",
+    description:
+      "Kenyan company specializing in clean energy through Concentrated Solar Heat (CSH), organic agricultural inputs (distilled wood vinegars, phosphorous recovery), and engineered environmental solutions for productive and manufacturing sectors in Africa.\nSpecializes in institutional solar kitchens with fixed-focus parabolic Scheffler dishes.",
     contact:
-      "Charles Oloo\nMobile: 0721 727 830 or 0735 751 382\nwww.thermofield.co.ke\ninfo@thermofield.co.ke",
-    products: "",
+      "Charles Oloo, Technical Director\nThermofield Industrial\nNairobi, Kenya\nMobile: +254 (0)721 727 830/735 751 382\ninfo@thermofield.co.ke\nwww.thermofield.co.ke",
+    products:
+      "Institutional Solar Kitchens (Fixed-Focus Parabolic Scheffler Dishes)\nScheffler Reflectors\nConcentrated Solar Heat (CSH) Systems",
     color: "default",
     url: "default",
     type: "default",
@@ -70,8 +72,7 @@ export const locations = {
     lat: -1.249896,
     lng: 36.883979,
     description: "\nUpdated: 2023-02-18",
-    contact:
-      "Samuel Odhiambo\nasulmacentre@gmail.com\n+254751530056\n\n",
+    contact: "Samuel Odhiambo\nasulmacentre@gmail.com\n+254751530056\n\n",
     products:
       "Box cookers\nConical Cookers\nHaines Cookers\nFireless Cookers\nFuel Saving Stoves",
     color: "default",
@@ -112,6 +113,20 @@ export const locations = {
     description: "Hybrid PV solar DC cookers",
     contact: "",
     products: "",
+    color: "default",
+    url: "default",
+    type: "default",
+    size: "default",
+  },
+  "9": {
+    name: "10 - Green Leaf Champions CBO",
+    lat: -1.331917,
+    lng: 37.117278,
+    description: "Promotion and awareness creation of Integrated Solar Cooking",
+    contact:
+      "Mary Iteba\nEmail: greenleafchampionscbo24@gmail.com\nMobile: +254 722 578396, +254 116 602874, +254 756 282249",
+    products:
+      "Solar Cookers (Haines 1.0, Conical, Box, Go Sun, Parabolic)\nFireless Cookers (Reed, Plastic)\nImproved Cooking Stoves (Multipurpose, Rocket, Kuni Mbili, KCJ)",
     color: "default",
     url: "default",
     type: "default",

@@ -51,14 +51,12 @@ export default function TypesOfCookers() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 md:gap-x-6">
+        <div className="columns-1 md:columns-2 xl:columns-3 gap-6 space-y-6">
           {cookerTypes.map((cooker, index) => (
             <div
               key={index}
-              className={`bg-card text-black rounded-lg overflow-hidden shadow-sm cursor-pointer flex flex-col ${
-                index === 0 || index === 3 ? "md:col-span-2 lg:col-span-2" : ""
-              }`}>
-              <div className="relative h-[250px] group">
+              className="bg-card text-black rounded-lg overflow-hidden shadow-sm cursor-pointer flex flex-col break-inside-avoid mb-6">
+              <div className="relative h-[200px] group flex-shrink-0">
                 <Image
                   src={cooker?.image}
                   alt={cooker?.title}
@@ -67,55 +65,68 @@ export default function TypesOfCookers() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70" />
-                <h3 className="absolute bottom-4 left-4 text-white font-semibold text-title-large z-10">
+                <h3 className="absolute bottom-4 left-4 text-white font-semibold text-lg z-10">
                   {cooker?.title}
                 </h3>
               </div>
 
-              <div className="p-6 flex-1 flex flex-col">
-                <p className="text-muted-foreground mb-4 flex-1 text-body-large text-black">
+              <div className="p-4 flex-1 flex flex-col space-y-3">
+                <p className="text-muted-foreground text-sm leading-relaxed">
                   {cooker?.description}
                 </p>
-                {cooker.advantages && (
-                  <div className="mt-2">
-                    <h4 className="font-semibold text-secondary mb-2">
-                      Advantages
-                    </h4>
-                    <p className="text-muted-foreground text-body-medium">
-                      {cooker?.advantages}
-                    </p>
-                  </div>
-                )}
-                {cooker.disadvantages && (
-                  <div className="mt-2">
-                    <h4 className="font-semibold text-secondary mb-2">
-                      Disadvantages
-                    </h4>
-                    <p className="text-muted-foreground text-body-medium">
-                      {cooker?.disadvantages}
-                    </p>
-                  </div>
-                )}
-                {cooker.temperature && (
-                  <div className="mt-2">
-                    <h4 className="font-semibold text-secondary mb-2">
-                      Temperature Range
-                    </h4>
-                    <p className="text-muted-foreground text-body-medium">
-                      {cooker?.temperature}
-                    </p>
-                  </div>
-                )}
-                {cooker.designer && (
-                  <div className="mt-2">
-                    <h4 className="font-semibold text-secondary mb-2">
-                      Designer
-                    </h4>
-                    <p className="text-muted-foreground text-body-medium">
-                      {cooker?.designer}
-                    </p>
-                  </div>
-                )}
+
+                <div className="space-y-3 flex-1">
+                  {cooker.advantages && (
+                    <div>
+                      <h4 className="font-semibold text-secondary text-sm mb-1">
+                        Advantages
+                      </h4>
+                      <p className="text-muted-foreground text-xs leading-relaxed">
+                        {cooker?.advantages}
+                      </p>
+                    </div>
+                  )}
+                  {cooker.disadvantages && (
+                    <div>
+                      <h4 className="font-semibold text-secondary text-sm mb-1">
+                        Disadvantages
+                      </h4>
+                      <p className="text-muted-foreground text-xs leading-relaxed">
+                        {cooker?.disadvantages}
+                      </p>
+                    </div>
+                  )}
+                  {cooker.temperature && (
+                    <div>
+                      <h4 className="font-semibold text-secondary text-sm mb-1">
+                        Temperature Range
+                      </h4>
+                      <p className="text-muted-foreground text-xs">
+                        {cooker?.temperature}
+                      </p>
+                    </div>
+                  )}
+                  {cooker.designer && (
+                    <div>
+                      <h4 className="font-semibold text-secondary text-sm mb-1">
+                        Designer
+                      </h4>
+                      <p className="text-muted-foreground text-xs leading-relaxed">
+                        {cooker?.designer}
+                      </p>
+                    </div>
+                  )}
+                  {cooker.specifications && (
+                    <div>
+                      <h4 className="font-semibold text-secondary text-sm mb-1">
+                        Specifications
+                      </h4>
+                      <p className="text-muted-foreground text-xs whitespace-pre-line leading-relaxed">
+                        {cooker?.specifications}
+                      </p>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           ))}

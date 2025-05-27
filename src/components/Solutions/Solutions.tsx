@@ -1,10 +1,10 @@
-"use client"
+"use client";
 import React from "react";
 import Card from "./Card";
 import { useRouter } from "next/navigation";
 
 export default function Solutions() {
-  const router = useRouter()
+  const router = useRouter();
   const PRODUCTS = [
     {
       name: "Solar Cooker",
