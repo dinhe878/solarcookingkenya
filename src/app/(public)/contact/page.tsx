@@ -33,7 +33,7 @@ const ContactUsPage = () => {
         county: formData.get("county"),
         vendor: formData.get("vendor"),
         message: formData.get("message"),
-        subject: "New Contact Form Submission - Solar Cooking Kenya",
+        subject: "New Contact Form Submission - Integrated Solar Cooking Kenya",
       };
 
       const response = await fetch("https://api.web3forms.com/submit", {

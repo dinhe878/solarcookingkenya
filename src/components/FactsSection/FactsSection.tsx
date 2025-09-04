@@ -20,7 +20,7 @@ export default function FactsSection() {
       button: "#",
     },
     {
-      fact: "9",
+      fact: "10+",
       title: "Vendors",
       summary:
         "We have our vendors who will help you get the products in Kenya",

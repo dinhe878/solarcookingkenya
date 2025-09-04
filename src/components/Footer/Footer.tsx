@@ -12,8 +12,8 @@ export default function Footer() {
           <Link className="flex items-center" href="/">
             <Image
               src="/logo.svg"
-              width={200}
-              height={100}
+              width={240}
+              height={120}
               alt="Solar Cooking Kenya"
               priority
             />

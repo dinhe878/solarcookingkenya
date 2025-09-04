@@ -25,8 +25,8 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Solar Cooking Kenya",
-  description: "Solar Cooking Kenya",
+  title: "Integrated Solar Cooking Kenya",
+  description: "Integrated Solar Cooking Kenya",
 };
 
 export default function RootLayout({

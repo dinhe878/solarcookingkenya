@@ -1,6 +1,7 @@
 export const ROUTES = [
   { name: "Home", path: "/" },
   { name: "About Us", path: "/about" },
+  { name: "Testimonials", path: "/testimonials" },
   {
     name: "Solar Cooking",
     path: "#",
@@ -17,6 +18,7 @@ export const ROUTES = [
 export const FOOTER_ROUTES = [
   { name: "Home", path: "/" },
   { name: "About Us", path: "/about" },
+  { name: "Testimonials", path: "/testimonials" },
   { name: "Solar Cooker", path: "/solarcookers/solarcooker" },
   { name: "Fireless Cooker", path: "/solarcookers/firelesscooker" },
   { name: "Fuel Saving Stove", path: "/solarcookers/fuelsavingstove" },
@@ -37,6 +39,7 @@ export const FOOTER_LINKS = [
     links: [
       { path: "/", name: "Home" },
       { path: "/about", name: "About Us" },
+      { path: "/testimonials", name: "Testimonials" },
       { path: "/contact", name: "Contact Us" },
     ],
   },

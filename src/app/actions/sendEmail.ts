@@ -49,7 +49,7 @@ export async function sendEmail(formData: FormData) {
   }
 
   const emailData = {
-    from: `"Solar Cooking Kenya" <${process.env.EMAIL_USER}>`,
+    from: `"Integrated Solar Cooking Kenya" <${process.env.EMAIL_USER}>`,
     to: "judefabiano99@gmail.com",
     replyTo: email as string,
     subject: `New Inquiry from ${name}`,

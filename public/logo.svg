@@ -1,9 +1,14 @@
-<svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
-  <!-- Text -->
-  <text x="0" y="35" font-family="Arial" font-weight="bold" font-size="24" fill="#10b981">
-    SOLAR COOKING
+<svg viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Main title -->
+  <text x="200" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#2980B9">
+    INTEGRATED SOLAR
   </text>
-  <text x="0" y="60" font-family="Arial" font-weight="bold" font-size="24" fill="#10b981">
-    KENYA
+  
+  <!-- Subtitle -->
+  <text x="200" y="76" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#27AE60">
+    COOKING KENYA
   </text>
+  
+  <!-- Simple underline accent -->
+  <line x1="60" y1="92" x2="340" y2="92" stroke="#27AE60" stroke-width="3"/>
 </svg>

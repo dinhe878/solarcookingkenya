@@ -40,7 +40,7 @@ export default function CalltoAction() {
         </h1>
         <div className="lg:flex lg:space-x-4 space-y-4">
           <div className="space-y-4 w-full md:w-3/4 lg:w-1/2">
-            <p className="text-accent font-semibold ">
+            <p className="text-accent font-semibold text-title-medium md:text-title-large">
               To provide affordable and sustainable solar cooking solutions to
               communities in Kenya, empowering them to improve their health,
               environment, and economic well-being.

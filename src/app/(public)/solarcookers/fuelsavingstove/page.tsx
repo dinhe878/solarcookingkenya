@@ -59,7 +59,7 @@ const RocketStovePage = () => {
       <div className="py-20 bg-gray-200 items-center justify-center flex-col flex space-y-6">
         <div className="container mx-auto items-center justify-center px-14 flex-1 flex flex-col space-y-4">
           <div className="flex flex-col space-y-4 w-full md:text-center justify-center md:items-center">
-            <p className="text-title-small font-semibold text-secondary">
+            <p className="text-title-medium md:text-title-large font-semibold text-secondary">
               Unlock the Efficiency of Rocket Stove Technology
             </p>
             <h2 className="text-display-medium font-bold leading-tight md:w-1/2 md:text-center text-accent">
@@ -98,7 +98,7 @@ const RocketStovePage = () => {
       <div className="bg-secondary text-secondary-foreground px-14">
         <div className="container mx-auto grid md:grid-cols-2 gap-8 items-stretch">
           <div className="py-16">
-            <p className="text-title-small font-semibold text-accent">
+            <p className="text-title-medium md:text-title-large font-semibold text-accent">
               How a Rocket Stove Works
             </p>
             <h2 className="text-display-medium font-bold leading-tight md:w-3/4 my-4">
@@ -150,6 +150,16 @@ const RocketStovePage = () => {
               className=""
             />
           </div>
+        </div>
+      </div>
+
+      {/* DIY Video Placeholder */}
+      <div className="container mx-auto px-14 py-12">
+        <h3 className="text-title-medium md:text-title-large font-semibold text-secondary mb-4">
+          DIY: Build a Rocket Stove (video coming soon)
+        </h3>
+        <div className="aspect-video w-full bg-gray-300 rounded-lg flex items-center justify-center text-muted-foreground">
+          Video placeholder
         </div>
       </div>
 

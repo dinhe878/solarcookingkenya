@@ -20,8 +20,8 @@ const Header = () => {
           <Link href="/">
             <Image
               src="/logo.svg"
-              width={220}
-              height={100}
+              width={260}
+              height={110}
               alt="Solar Cooking Kenya"
               priority
             />
@@ -90,8 +90,8 @@ const Header = () => {
                   <Link href="/">
                     <Image
                       src="/logo.svg"
-                      width={200}
-                      height={100}
+                      width={220}
+                      height={110}
                       alt="Solar Cooking Kenya"
                       priority
                     />

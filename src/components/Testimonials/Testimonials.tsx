@@ -7,7 +7,7 @@ export function Testimonials() {
   return (
     <div className="lg:h-[40rem] py-10 px-10 rounded-md flex flex-col antialiased bg-blue dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hiddenn ">
       <div className="flex flex-col space-y-4 lg:w-2/3 lg:text-center justify-center lg:items-center">
-        <h1 className="text-title-small font-semibold text-secondary">
+        <h1 className="text-title-medium md:text-title-large font-semibold text-secondary">
           What Our Clients Say
         </h1>
         <p className="text-display-medium font-bold leading-tight lg:w-1/2 lg:text-center text-accent">

@@ -12,7 +12,7 @@ const AboutUsPage = () => {
     },
     {
       number: "3",
-      label: "Solutions",
+      label: "Components",
       description:
         "Solar cookers, fireless cookers, and fuel-saving stoves for sustainable cooking",
     },
@@ -51,7 +51,7 @@ const AboutUsPage = () => {
       {/* Mission Section */}
       <div className="py-20 container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-title-small font-semibold text-secondary">
+          <h2 className="text-title-medium md:text-title-large font-semibold text-secondary">
             Our Mission
           </h2>
           <h1 className="text-display-medium font-bold leading-tight mt-4">

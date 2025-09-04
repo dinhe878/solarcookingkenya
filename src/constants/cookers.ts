@@ -16,16 +16,16 @@ const cookerTypes: CookerType[] = [
     description:
       "This type of cooker has the advantage of slow, even cooking of large quantities of food. Variations include slanting the face toward the sun and the number of reflectors.",
     advantages:
-      "Some are large enough to cook with multiple pots, also great for baking and slow cooking. They be constructed with simple materials, several high quality commercial designs also available.",
+      "Some are large enough to cook with multiple pots, also great for baking and slow cooking. They can be constructed with simple materials. Several high quality commercial designs are also available.",
     disadvantages:
-      "The box design may block light entering the cooking chamber unless the unit is tipped and cannot fry foods.",
+      "The box design may block light entering the cooking chamber unless the unit is tipped. It cannot fry foods.",
     temperature: "135 - 200 °C (275 - 392 °F)",
   },
   {
     title: "The Conical Cooker",
     image: "/q2.png",
     description:
-      "A conical solar cooker has a large cooking power and is relatively cheap. It consists of a piece of iron bent into a conical shape, which is covered at the inside by reflecting aluminum foil. Inside the conus there is a platform of blackened iron on which a blackened pan is placed.",
+      "A conical solar cooker has a large cooking power and is relatively cheap. It consists of a piece of iron bent into a conical shape, which is covered at the inside by reflecting aluminium foil. Inside the conus there is a platform of blackened iron on which a blackened pan is placed.",
     advantages:
       "When using a conical cooker with a diameter of 80 cm, 1 liter of water can be brought to boiling in about 20 minutes, and when baking bread, temperatures in excess of 150 °C can be reached.",
     designer:
@@ -35,15 +35,15 @@ const cookerTypes: CookerType[] = [
     title: "Panel ovens",
     image: "/q3.png",
     description:
-      "In this design, flat panels concentrate the sun rays onto a pot covered with polycarbonate sleeves or under a glass bowl. To produce a panel oven you need cardboard, aluminum foil and some glue.",
+      "In this design, flat panels concentrate the sun rays onto a pot covered with polycarbonate sleeves or under a glass bowl. You can produce a panel oven with materials as simple as cardboard, aluminium foil and some glue or tape.",
     advantages:
-      "It is inexpensive to build or buy, and typically can be collapsed for storage or transport. Slow cooking retains flavors and nutrients, and requires little, if any, reorientation to the sun.",
+      "It is inexpensive to build or buy, and typically can be collapsed for storage or transport. Slow cooking retains flavors and nutrients, and can require less orientation to the sun depending on latitude and conditions.",
     disadvantages:
       "It achieves usually not more than 110 - 170 °C (230 - 340 °F), and cannot fry foods. Homemade units are difficult to weatherproof, thus needs stabilizing after a while, or replacement.",
   },
   {
     title: "Parabolic Cookers",
-    image: "/q4.png",
+    image: "/parabolicnew.jpg",
     description:
       "These are usually concave disks that focus the light onto the bottom of a pot. The advantage is that foods cook about as fast as on a conventional stove.",
     advantages:
