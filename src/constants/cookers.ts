@@ -43,7 +43,7 @@ const cookerTypes: CookerType[] = [
   },
   {
     title: "Parabolic Cookers",
-    image: "/parabolicnew.jpg",
+    image: "/parabolicnew.JPG",
     description:
       "These are usually concave disks that focus the light onto the bottom of a pot. The advantage is that foods cook about as fast as on a conventional stove.",
     advantages:
