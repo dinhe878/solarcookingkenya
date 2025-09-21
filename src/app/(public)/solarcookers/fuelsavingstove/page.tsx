@@ -95,7 +95,7 @@ const RocketStovePage = () => {
       </div>
 
       {/* Procedure Section */}
-      <div className="bg-secondary text-secondary-foreground px-14">
+      <div className="bg-secondary text-secondary-foreground pl-14">
         <div className="container mx-auto grid md:grid-cols-2 gap-8 items-stretch">
           <div className="py-16">
             <p className="text-title-medium md:text-title-large font-semibold text-accent">
@@ -143,23 +143,13 @@ const RocketStovePage = () => {
           </div>
           <div className="relative h-full mr-0">
             <Image
-              src="/fuelsavingstove.svg"
+              src="/jiko.jpg"
               alt="Rocket Stove"
               layout="fill"
               objectFit="fill"
               className=""
             />
           </div>
-        </div>
-      </div>
-
-      {/* DIY Video Placeholder */}
-      <div className="container mx-auto px-14 py-12">
-        <h3 className="text-title-medium md:text-title-large font-semibold text-secondary mb-4">
-          DIY: Build a Rocket Stove (video coming soon)
-        </h3>
-        <div className="aspect-video w-full bg-gray-300 rounded-lg flex items-center justify-center text-muted-foreground">
-          Video placeholder
         </div>
       </div>
 
