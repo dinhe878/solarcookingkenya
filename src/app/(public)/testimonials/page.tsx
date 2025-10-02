@@ -43,6 +43,7 @@ const TestimonialsPage = () => {
             items={testimonials}
             direction="right"
             speed="slow"
+            className="mx-auto"
           />
         </div>
       </div>

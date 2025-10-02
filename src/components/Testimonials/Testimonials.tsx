@@ -5,7 +5,7 @@ import { InfiniteMovingCards } from "../ui/infinite-moving-cards";
 
 export function Testimonials() {
   return (
-    <div className="lg:h-[40rem] py-10 px-10 rounded-md flex flex-col antialiased bg-blue dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hiddenn ">
+    <div className="lg:h-[40rem] py-10 px-10 rounded-md flex flex-col antialiased bg-blue dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden ">
       <div className="flex flex-col space-y-4 lg:w-2/3 lg:text-center justify-center lg:items-center">
         <h1 className="text-title-medium md:text-title-large font-semibold text-secondary">
           What Our Clients Say
@@ -14,11 +14,12 @@ export function Testimonials() {
           Saving Money and the environment we live in!
         </p>
       </div>
-      <div className="mt-10">
+      <div className="mt-10 w-full">
         <InfiniteMovingCards
           items={testimonials}
           direction="right"
           speed="slow"
+          className="mx-auto"
         />
       </div>
     </div>
