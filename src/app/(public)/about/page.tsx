@@ -37,7 +37,7 @@ const AboutUsPage = () => {
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="container relative mx-auto py-16 grid md:grid-cols-2 gap-8 items-center px-14">
           <div>
-            <h1 className="text-[80px] font-bold leading-tight tracking-tighter">
+            <h1 className="text-[36px] sm:text-[48px] md:text-[64px] lg:text-[80px] font-bold leading-tight tracking-tighter">
               About Us
             </h1>
             <p className="text-body-medium text-background max-w-2xl">

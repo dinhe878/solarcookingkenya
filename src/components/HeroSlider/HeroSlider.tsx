@@ -33,10 +33,10 @@ export default function HeroSlider({
         className="object-cover w-full h-full"
       />
       <div className="absolute inset-0 bg-black/40">
-        <div className="container mx-auto h-full flex items-center px-10">
+        <div className="container mx-auto h-full flex items-center px-6 md:px-10">
           <div className="w-full md:w-3/4 lg:w-1/2 space-y-6">
-            <div className="bg-black/60 text-background p-6 md:p-8 rounded-lg shadow-lg max-w-2xl">
-              <h1 className="text-[48px] md:text-[56px] lg:text-[60px] font-bold leading-tight tracking-tighter">
+            <div className="bg-black/60 text-background p-5 md:p-6 lg:p-8 rounded-lg shadow-lg max-w-2xl">
+              <h1 className="text-[32px] sm:text-[42px] md:text-[56px] lg:text-[60px] font-bold leading-tight tracking-tighter">
                 {slide.title}
               </h1>
               <p className="text-body-small md:text-body-medium max-w-2xl">
@@ -57,10 +57,10 @@ export default function HeroSlider({
                 </div>
                 <Button
                   onClick={onProductsClick}
-                  className="bg-secondary text-secondary-foreground px-8 py-3 flex items-center hover:bg-accent hover:text-accent-foreground transition-colors">
+                  className="bg-secondary text-secondary-foreground px-6 md:px-8 py-2 md:py-3 flex items-center hover:bg-accent hover:text-accent-foreground transition-colors text-sm md:text-base">
                   Our Products
                   <svg
-                    className="w-5 h-5 ml-2"
+                    className="w-4 h-4 md:w-5 md:h-5 ml-2"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24">

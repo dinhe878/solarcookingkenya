@@ -60,8 +60,8 @@ const KenyaMap: React.FC<KenyaMapProps> = ({ geoJsonData, locations }) => {
   const width = 800;
   const height = 600;
   const projection = geoMercator()
-    .center([37.5, -1])
-    .scale(5000)
+    .center([37.5, -0.5]) // Slightly adjusted center for better view
+    .scale(3200) // Reduced scale to show more of Kenya
     .translate([width / 2, height / 2]);
 
   const pathGenerator = geoPath().projection(projection);
@@ -76,12 +76,19 @@ const KenyaMap: React.FC<KenyaMapProps> = ({ geoJsonData, locations }) => {
         SVGSVGElement,
         unknown
       >()
-        .scaleExtent([1, 8])
+        .scaleExtent([0.7, 8]) // Allow zooming out to 70% to see full map
         .on("zoom", (event) => {
           svg.select("g").attr("transform", event.transform);
         });
 
       svg.call(zoomBehavior as any);
+
+      // Set initial zoom to show all of Kenya nicely
+      const initialScale = 0.85;
+      svg.call(
+        zoomBehavior.transform as any,
+        d3.zoomIdentity.scale(initialScale)
+      );
     }
   }, []);
 
@@ -220,6 +227,7 @@ const KenyaMap: React.FC<KenyaMapProps> = ({ geoJsonData, locations }) => {
           {showRealMap ? (
             <div className="w-full h-[70vh] relative z-10">
               <iframe
+                title="Vendors Map - Real View"
                 width="100%"
                 height="100%"
                 frameBorder="0"
@@ -236,7 +244,8 @@ const KenyaMap: React.FC<KenyaMapProps> = ({ geoJsonData, locations }) => {
                   width="100%"
                   height="100%"
                   viewBox={`0 0 ${width} ${height}`}
-                  className="">
+                  className="cursor-move bg-transparent"
+                  preserveAspectRatio="xMidYMid meet">
                   <g>
                     <rect
                       x={0}
@@ -264,25 +273,25 @@ const KenyaMap: React.FC<KenyaMapProps> = ({ geoJsonData, locations }) => {
                       ]) || [0, 0];
 
                       return (
-                        <g key={i} className="group">
+                        <g key={i} className="group cursor-pointer">
                           <circle
                             cx={x}
                             cy={y}
-                            r="12"
-                            className="fill-green-400 opacity-20 animate-pulse group-hover:fill-amber-400"
+                            r="14"
+                            className="fill-green-400 opacity-25 animate-pulse group-hover:fill-amber-400"
                           />
                           <circle
                             cx={x}
                             cy={y}
-                            r="8"
+                            r="9"
                             className="fill-transparent stroke-amber-300 opacity-0 group-hover:opacity-75 transition-all duration-300"
                             strokeWidth="2"
                           />
                           <circle
                             cx={x}
                             cy={y}
-                            r="5"
-                            className="fill-green-400 transition-all duration-300 group-hover:fill-amber-400 group-hover:r-6"
+                            r="6"
+                            className="fill-green-400 transition-all duration-300 group-hover:fill-amber-400 group-hover:r-7"
                           />
                           <g className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <LocationInfoCard location={location} x={x} y={y} />

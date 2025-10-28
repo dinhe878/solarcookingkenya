@@ -17,7 +17,7 @@ const TestimonialsPage = () => {
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="container relative mx-auto px-14 py-16 grid gap-8 items-center">
           <div>
-            <h1 className="text-[64px] md:text-[80px] font-bold leading-tight tracking-tighter">
+            <h1 className="text-[36px] sm:text-[48px] md:text-[64px] lg:text-[80px] font-bold leading-tight tracking-tighter">
               Testimonials
             </h1>
             <p className="text-body-medium text-background max-w-2xl">

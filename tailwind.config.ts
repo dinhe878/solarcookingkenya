@@ -13,21 +13,43 @@ const config: Config = {
   ],
   theme: {
     fontSize: {
-      "display-large": "3.5625rem", // 57px
-      "display-medium": "2.8125rem", // 45px
-      "display-small": "2.25rem", // 36px
-      "headline-large": "2rem", // 32px
-      "headline-medium": "1.75rem", // 28px
-      "headline-small": "1.5rem", // 24px
-      "title-large": "1.375rem", // 22px
-      "title-medium": "1rem", // 16px"
-      "title-small": "0.875rem", // 14px
+      // Conservative responsive sizes: maintain desktop size, reduce slightly on mobile
+      "display-large": [
+        "clamp(2.5rem, 4vw + 1rem, 3.5625rem)",
+        { lineHeight: "1.1" },
+      ], // 40px to 57px
+      "display-medium": [
+        "clamp(2rem, 3vw + 0.8rem, 2.8125rem)",
+        { lineHeight: "1.2" },
+      ], // 32px to 45px
+      "display-small": [
+        "clamp(1.75rem, 2vw + 0.8rem, 2.25rem)",
+        { lineHeight: "1.2" },
+      ], // 28px to 36px
+      "headline-large": [
+        "clamp(1.5rem, 1.5vw + 0.7rem, 2rem)",
+        { lineHeight: "1.3" },
+      ], // 24px to 32px
+      "headline-medium": [
+        "clamp(1.375rem, 1.2vw + 0.6rem, 1.75rem)",
+        { lineHeight: "1.3" },
+      ], // 22px to 28px
+      "headline-small": [
+        "clamp(1.25rem, 1vw + 0.5rem, 1.5rem)",
+        { lineHeight: "1.4" },
+      ], // 20px to 24px
+      "title-large": [
+        "clamp(1.125rem, 0.8vw + 0.5rem, 1.375rem)",
+        { lineHeight: "1.4" },
+      ], // 18px to 22px
+      "title-medium": "1rem", // 16px - keep fixed
+      "title-small": "0.875rem", // 14px - keep fixed
       "label-large": "0.875rem", // 14px
       "label-medium": "0.75rem", // 12px
-      "label-small": "0.6875rem", // 11px"
-      "body-large": "1rem", // 16px
-      "body-medium": "0.875rem", // 14px
-      "body-small": "0.75rem", // 12px
+      "label-small": "0.6875rem", // 11px
+      "body-large": "1rem", // 16px - keep fixed
+      "body-medium": "0.875rem", // 14px - keep fixed
+      "body-small": "0.75rem", // 12px - keep fixed
     },
     extend: {
       animation: {
