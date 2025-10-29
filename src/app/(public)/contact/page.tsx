@@ -19,30 +19,31 @@ const ContactUsPage = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
 
     try {
-      setIsSubmitting(true);
-
       const formData = new FormData(e.currentTarget);
 
-      // Create the payload for web3forms
-      const payload = {
-        access_key: "6da1fd22-4f64-49b3-a164-d1a3002126ea",
-        name: formData.get("name"),
-        email: formData.get("email"),
-        county: formData.get("county"),
-        vendor: formData.get("vendor"),
-        message: formData.get("message"),
-        subject: "New Contact Form Submission - Integrated Solar Cooking Kenya",
-      };
+      // Add Web3Forms access key and subject
+      const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+
+      if (!accessKey) {
+        throw new Error(
+          "Web3Forms access key is not configured. Please check your environment variables."
+        );
+      }
+
+      formData.append("access_key", accessKey);
+      formData.append(
+        "subject",
+        "New Contact Form Submission - Integrated Solar Cooking Kenya"
+      );
+      formData.append("from_name", "ISC Kenya Website");
 
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(payload),
+        body: formData,
       });
 
       const result = await response.json();
@@ -50,21 +51,20 @@ const ContactUsPage = () => {
       if (result.success) {
         setSubmitStatus({
           success: true,
-          message: "Message sent successfully!",
+          message: "Thank you! Your message has been sent successfully.",
         });
 
-        // Wait 3 seconds before resetting form
-        await new Promise((resolve) => setTimeout(resolve, 3000));
-
-        // Reset all form states
-        setSelectedCounty("");
-        setSelectedVendor("");
-        setSubmitStatus(null);
-
-        // Reset form fields using formRef
+        // Reset form
         if (formRef.current) {
           formRef.current.reset();
         }
+        setSelectedCounty("");
+        setSelectedVendor("");
+
+        // Clear success message after 5 seconds
+        setTimeout(() => {
+          setSubmitStatus(null);
+        }, 5000);
       } else {
         throw new Error(result.message || "Something went wrong!");
       }
