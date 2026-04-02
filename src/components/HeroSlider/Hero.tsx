@@ -6,7 +6,7 @@ import { Button } from "../ui/button";
 
 const slides = [
   {
-    image: "/SCI_PEP_Testing_solarcookers_dot_org_.jpg",
+    image: "/Fireless_cooker_2026-04-02.jpeg",
     title:
       "Integrated Solar Cooking - a way to a healthier and more sustainable life",
     content:

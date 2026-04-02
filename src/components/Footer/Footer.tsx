@@ -63,15 +63,19 @@ export default function Footer() {
           {/* Images Under Right Section */}
           <div className="flex items-center justify-end gap-4">
             <div className="flex items-center justify-center gap-8 mt-8">
-              <img
+              <Image
                 src="/ewb_logo_green_RGB.png"
                 alt="EWB Logo"
-                className="h-16 object-contain"
+                width={180}
+                height={64}
+                className="h-16 w-auto object-contain"
               />
-              <img
+              <Image
                 src="/VUH_logo.png"
                 alt="VUH Logo"
-                className="h-16 object-contain"
+                width={180}
+                height={64}
+                className="h-16 w-auto object-contain"
               />
             </div>
           </div>
