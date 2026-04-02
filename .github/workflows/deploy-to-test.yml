@@ -23,5 +23,5 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /domains/test.solarcookingkenya.co.ke/public_html/        # or ${{ secrets.FTP_TARGET_DIR }}
+          server-dir: /domains/new.solarcookingkenya.co.ke/public_html/
           local-dir: ./out/
