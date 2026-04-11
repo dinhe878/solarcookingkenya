@@ -1,15 +1,12 @@
-name: 🚀 Deploy website on merged PR to main
+name: 🚀 Deploy website on push to main
 
 on:
-  pull_request:
-    types:
-      - closed # when merged PR is closed
+  push:
     branches:
-      - main   # only PRs targeting main
+      - main
 
 jobs:
   web-deploy:
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
