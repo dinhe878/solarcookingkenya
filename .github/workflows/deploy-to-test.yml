@@ -1,4 +1,4 @@
-name: 🚀 Deploy website on push
+name: 🚀 Deploy test website (new.solarcookingkenya.co.ke) on push
 
 on:
   push:
