@@ -1,12 +1,15 @@
-name: 🚀 Deploy website on PR to main
+name: 🚀 Deploy website on merged PR to main
 
 on:
   pull_request:
+    types:
+      - closed # when merged PR is closed
     branches:
-      - main   # run checks for PRs targeting main
+      - main   # only PRs targeting main
 
 jobs:
   web-deploy:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
@@ -18,7 +21,6 @@ jobs:
         run: npm ci && npm run build
 
       - name: 📂 Sync files via FTP
-        if: github.event_name == 'pull_request'
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_SERVER }}
