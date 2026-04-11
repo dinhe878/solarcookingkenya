@@ -6,20 +6,20 @@ import { Button } from "../ui/button";
 
 const slides = [
   {
-    image: "/Fireless_cooker_2026-04-02.jpeg",
+    image: "/PHOTO-2026-04-08-08-37-25.jpg",
     title:
       "Integrated Solar Cooking - a way to a healthier and more sustainable life",
     content:
       "Integrated solar cooking (ISC) can improve both health and economy for families that use firewood, charcoal, kerosene or gas for cooking. A transition to ISC will reduce deforestation and also reduce carbon emission and thus reduce global warming.",
   },
   {
-    image: "/solar_cooking_dot_org.jpeg",
+    image: "/PHOTO-2026-04-08-08-35-25.jpg",
     title: "Investment repaid within 18 meals",
     content:
       "Panel ovens and conical cookers are usually the less expensive ones. A panel oven or a conical cooker pay for itself by using it for around 18 meals instead of 2kg (wood fuel) per Day.",
   },
   {
-    image: "/Kakuma_Refugee_Camp_1_solar_cookers.jpeg",
+    image: "/PHOTO-2026-04-08-08-36-25.jpg",
     title: "Free fuel from the sun",
     content:
       "Buy the cooker in installments after an initial cash deposit. After paying for your solar cooker the sun will provide you with free fuel. Take good care of your cooker and it will last for many years. Combine with a fireless cooker to keep your meal hot and your family healthy.",
