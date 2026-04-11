@@ -6,7 +6,7 @@ import { Button } from "../ui/button";
 
 const slides = [
   {
-    image: "/PHOTO-2026-04-08-08-37-25.jpg",
+    image: "/PHOTO-2026-04-08-08-37-55.jpg",
     title:
       "Integrated Solar Cooking - a way to a healthier and more sustainable life",
     content:
