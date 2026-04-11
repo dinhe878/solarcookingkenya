@@ -16,6 +16,11 @@ jobs:
       - name: 📥 Get latest code
         uses: actions/checkout@v4
 
+      - name: 🟢 Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.9.0'
+          cache: npm
       # If you have a build step (npm run build, etc.), add it here.
       - name: Build
         run: npm ci && npm run build
