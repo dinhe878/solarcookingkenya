@@ -20,12 +20,25 @@ npm run dev     # start dev server at http://localhost:3000
 
 ## Deployment
 
-Deployment is automated via GitHub Actions on every push to `main`. The workflow:
+Two GitHub Actions workflows handle deployment automatically on push.
 
-1. Runs `npm ci && npm run build`
-2. Uploads the `./out/` folder to the host via FTP
+### Production — `solarcookingkenya.co.ke`
 
-Required GitHub secrets:
+Triggered by pushes to `main`, then automatically execute:
+
+1. Checks out code and sets up Node.js 20.9.0
+2. Runs `npm ci && npm run build`
+3. Uploads `./out/` to `/domains/solarcookingkenya.co.ke/public_html/` via FTP
+
+### Test — `new.solarcookingkenya.co.ke`
+
+Triggered by pushes to `test`, then automatically execute:
+
+1. Checks out code
+2. Runs `npm ci && npm run build`
+3. Uploads `./out/` to `/domains/new.solarcookingkenya.co.ke/public_html/` via FTP
+
+### Required GitHub secrets
 
 | Secret | Description |
 |---|---|
