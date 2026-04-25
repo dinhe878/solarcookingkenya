@@ -24,7 +24,7 @@ Two GitHub Actions workflows handle deployment automatically on push.
 
 ### Production — `solarcookingkenya.co.ke`
 
-Triggered by pushes to `main`, then automatically execute:
+Triggered by pushes to `main`, then automatically executes:
 
 1. Checks out code and sets up Node.js 20.9.0
 2. Runs `npm ci && npm run build`
@@ -32,7 +32,7 @@ Triggered by pushes to `main`, then automatically execute:
 
 ### Test — `new.solarcookingkenya.co.ke`
 
-Triggered by pushes to `test`, then automatically execute:
+Triggered by pushes to `test`, then automatically executes:
 
 1. Checks out code
 2. Runs `npm ci && npm run build`
