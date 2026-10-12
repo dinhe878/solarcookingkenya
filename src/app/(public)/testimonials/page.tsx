@@ -56,19 +56,25 @@ const testimonials = [
     quote:
       "My name is Sarah Ndunyo. I have used solar cookers for some years now. It saves me a lot of money. A sunny month as last February I solar cooked my food during 20 days. That saved me around 2000 KES.",
     name: "Sarah N.",
-    title: "Construction Manager",
+    title: "Farmer",
   },
   {
     quote:
-      "I have two cookers that I can bring to the fields. It is easier and faster to use two cookers. I heat up water when my food is done to use for washing up.I also have a box cooker and a fireless cooker. The box cooker is heavier, but that is good when it is windy. The fireless cooker keeps the dish hot until we eat.",
+      "I have a number of solar cookers that we use to prepare staff meals. Their usage have cut down on our fuel cost needed for meals. We heat up water when our food is done to use for washing up utensils. We also have fireless cookers that keep the dishes hot until we eat.",
     name: "Samuel O.",
-    title: "Nairobi County, Kenya",
+    title: "Solar Cooking Promoter, Kenya",
   },
   {
     quote:
-      "The cooker also saves me time, since I can do other work while it cooks. A good thing is that It is easy to bring it out to the fields and eat there after work.",
-    name: "Peter K.",
-    title: "Architect",
+      "I am Eunice. I have solar cooked for the last three years. Solar cooking helps me to save hence I am able to spend on other important needs. Solar cooking is healthy and cheap.",
+    name: "Eunice A.",
+    title: "Chairperson, Women Group",
+  },
+  {
+    quote:
+      "I am Irene. I bought a cookit solar cooker two years ago and I have been using it for at least 100 days in a year whe it is sunny. For me I enjoy solar cooking because it is cheap and equally allows me to multi-task.",
+    name: "Irene A.",
+    title: "Community Service Worker",
   },
 ];
 
