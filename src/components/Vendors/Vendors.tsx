@@ -233,7 +233,7 @@ const KenyaMap: React.FC<KenyaMapProps> = ({ geoJsonData, locations }) => {
                 frameBorder="0"
                 allowFullScreen
                 allow="geolocation"
-                src="//umap.openstreetmap.fr/sv/map/vendors-of-integrated-solar-cooking-kenya_873172?scaleControl=false&miniMap=false&scrollWheelZoom=false&zoomControl=true&editMode=disabled&moreControl=true&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=true&onLoadPanel=caption&captionBar=false&captionMenus=true"
+                src="//umap.openstreetmap.fr/sv/map/integrated-solar-cooking-kenya_542256#7/-0.373533/38.023682?scaleControl=false&miniMap=false&scrollWheelZoom=false&zoomControl=true&editMode=disabled&moreControl=true&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=true&onLoadPanel=caption&captionBar=false&captionMenus=true"
               />
             </div>
           ) : (
